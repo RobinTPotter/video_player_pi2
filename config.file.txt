@@ -1,0 +1,1 @@
+{"FPS": 40, "ext": ["mp4", "webm", "avi", "mp3"], "thumbnails": "thumbnails", "dir": ["tests/m1", "tests/m2", "~", "/media/usb0", "/media/usb1"], "size": [200, 150]}
