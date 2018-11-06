@@ -1,1 +1,1 @@
-{"FPS": 40, "ext": ["mp4", "webm", "avi", "mp3"], "thumbnails": "thumbnails", "dir": ["tests/m1", "tests/m2", "~", "/media/usb0", "/media/usb1"], "size": [200, 150]}
+{"size": [720, 576], "FPS": 25, "VISIBLE_MOUSE": false, "MESSAGE_LENGTH": 255, "thumbnails": "thumbnails", "ext": ["mp4"], "dir": ["~"], "controls_set": true, "controls": [{"name": "up", "button": null, "key": 273}, {"name": "down", "button": null, "key": 274}, {"name": "left", "button": null, "key": 276}, {"name": "right", "button": null, "key": 275}, {"name": "fire", "button": null, "key": 13}]}

@@ -7,28 +7,37 @@ import random
 import glob 
 from os.path import basename
 
-
 pg.init()
 pg.joystick.init()
 joystick = None
-
 
 ## initialize font
 
 pg.font.init()
 font = pg.font.SysFont(None, 12)
-print (font)
-
 
 ## set config file name and define config load/save functions
 
 config_file = 'config.file.txt'
-default = {'size': [200,150], \
-                'FPS': 40, \
-                'thumbnails': 'thumbnails', \
-                'ext': ['mp4'], \
-                'dir': ['~'] \
-                }
+
+default = {'size': [720,576], \
+    'FPS': 25, \
+    'VISIBLE_MOUSE': False, \
+    'MESSAGE_LENGTH': 255, \
+    'thumbnails': 'thumbnails', \
+    'ext': ['mp4'], \
+    'dir': ['~'], \
+    'controls_set': False, \
+    'controls': [ 
+        {'name': 'up', 'button': None, 'key': None}, 
+        {'name': 'down', 'button': None, 'key': None}, 
+        {'name': 'left', 'button': None, 'key': None}, 
+        {'name': 'right', 'button': None, 'key': None}, 
+        {'name': 'fire', 'button': None, 'key': None}    
+    ]
+}
+
+
 
 def save_config(config):
     with open(config_file,'w') as fp:
@@ -53,30 +62,43 @@ for dk in default:
 ## resave possibily changed config
 save_config(config)
 
-
-
-## constants for screen control
-MAIN = 'MAIN'
-SETTINGS = 'SETTINGS'
-CHAPTERS = 'CHAPTERS'
-PLAYING = 'PLAYING'
-
-MODES = ['MAIN','SETTINGS','CHAPTERS','PLAYING'] 
-MODE = MAIN
-
-
+## initial settings for screen size/refresh rate
 
 pg.display.set_mode(config['size'])
 FPS = config['FPS']
+VISIBLE_MOUSE = config['VISIBLE_MOUSE']
+MESSAGE_LENGTH = config['MESSAGE_LENGTH']
+WIDTH = config['size'][0]
+HEIGHT = config['size'][1]
+FONT_HEIGHT = font.size('X')[1]
 
+MODE_DEFINE_CONTROLS = 'DEFINE_CONTROLS'
+MODE_MAIN = 'MAIN'
+PLAYING = 'PLAYING'
+GAME_MODE = {}
+GAME_MODE['GAME_MODES'] = [MODE_DEFINE_CONTROLS, MODE_MAIN, PLAYING]
+GAME_MODE['CURRENT_MODE'] = GAME_MODE['GAME_MODES'][0]
 
 ##https://learn.adafruit.com/pi-video-output-using-pygame/pointing-pygame-to-the-framebuffer
 ##stolen from here with grateful thanks
 class main_screen :
+
     screen = None
-    textsurface_counter = 0 
+    textsurface_counter = 0
     
-    def __init__(self):
+    controls = None
+    
+    used_buttons = []
+    used_keys = []
+    
+    control_index = 0
+        
+    def __init__(self, controls, controls_set):
+    
+        self.controls = controls
+        if controls_set is False: GAME_MODE['CURRENT_MODE'] = MODE_DEFINE_CONTROLS
+        else: GAME_MODE['CURRENT_MODE'] = MODE_MAIN
+    
         "Ininitializes a new pg screen using the framebuffer"
         # Based on "Python GUI in Linux frame buffer"
         # http://www.karoltomala.com/blog/?p=679
@@ -106,13 +128,13 @@ class main_screen :
         
         size = (pg.display.Info().current_w, pg.display.Info().current_h)
         print("Framebuffer size: {0} x {1}".format(size[0], size[1]))
-        self.screen = pg.display.set_mode(size, pg.FULLSCREEN)
+        self.screen = pg.display.set_mode(size) #, pg.FULLSCREEN)
         # Clear the screen to start
         self.screen.fill((0, 0, 0))        
         # Initialise font support
         pg.font.init()
         # Render the screen
-        pg.mouse.set_visible(False)
+        pg.mouse.set_visible(VISIBLE_MOUSE)
         pg.display.update()
        
     def __del__(self):
@@ -135,58 +157,33 @@ class main_screen :
         except:
             self.output("no joysticks")
             
-            
-            
     ##one line feed back to screen, setting a opacity/counter for fade out
     def output(self, message):
         print(message)
         self.textsurface = font.render(message, True, (0, 0, 0),(255,255,255))
-        self.textsurface_counter = 255
-      
-    def update(self):
-        
-        
-        self.thumbnails_list = os.listdir(config['thumbnails'])
-
-        ## thumbnails is a directory and is filled with directories containing thumbnails at X seconds called X.png with padded zeroes.
-        ## these subdirectories are named after the video file name, hence it would be good idea for movie names to be unique
-
-        print("{0} entries in thumbnails directory".format(len(self.thumbnails_list)))
-
-
-        ## iterate through configured movie directories and check if there are movies inside which have
-        ## one of the require extensions
-        self.movie_list = []
-        for d in config['dir']:
-            self.movie_list = self.movie_list + [g for g in glob.glob(d+"/*") if len([e for e in config['ext'] if g.endswith(e)])>0]
-
-        for mm in self.movie_list:
-            if basename(mm) in self.thumbnails_list: tt="*"
-            else: tt=" "
-            self.output("{1} {0}".format(mm, tt))
-
+        self.textsurface_counter = MESSAGE_LENGTH
       
     ##start function for main loop
     def start(self,clock):
         
         prev_m = None
-        self.update()
         self.tick=0
         self.current_movie = ''      
 
         done = False
         try:    
-            while done==False:
-                
+            while done==False:               
                     
                 self.tick+=1
-                if self.tick % FPS * 60 ==0:
-                    self.update()
+                
+                if self.tick%100==0: print (GAME_MODE['CURRENT_MODE'])
                 
                 red = (0, 0, 0)
                 self.screen.fill(red)
                  
-
+                key_number = None
+                button_number = None
+                 
                 # EVENT PROCESSING STEP
                 # heavily doctored from Adafruit example
                 for event in pg.event.get(): # User did something
@@ -195,54 +192,81 @@ class main_screen :
                     
                     # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
                     if event.type == pg.JOYBUTTONDOWN or ( event.type == pg.KEYDOWN ):
-                        if 'button' in event.dict: self.output("Joystick button {0} pressed".format(event.button))
-                        if 'key' in event.dict: self.output("Key {0} pressed".format(event.key))
+                        if 'button' in event.dict:
+                            self.output("Joystick button {0} pressed".format(event.button))
+                            #print(self.used_buttons)
+                            button_number = event.button
+                            
+                        if 'key' in event.dict:
+                            self.output("Key {0} pressed".format(event.key))
+                            #print(self.used_keys)
+                            key_number = event.key
                         
                     if event.type == pg.JOYBUTTONUP or ( event.type == pg.KEYUP ):
-                        if 'button' in event.dict: self.output("Joystick button {0} released".format(event.button))
-                        if 'key' in event.dict: self.output("Key {0} released".format(event.key))
-
-                
-                if MODE is MAIN:
-                    pass
-                    
-                elif MODE is CHAPTERS:
-                    pass
-                    
-                elif MODE is SETTINGS:
-                    pass
-                    
-                elif MODE is PLAYING:
-                    pass
-                        
+                        if 'button' in event.dict:
+                            self.output("Joystick button {0} released".format(event.button))
                             
-                    
-                if MODE is not PLAYING:                    
-                    
-                    m = pg.mouse.get_pos()
-                    mx,my = m[0],m[1]
-                    if prev_m!=m: self.output("mouse {0},{1}".format(mx,my))
-                    
-                    
-                    
-                    if self.textsurface_counter > 0:
-                        self.screen.blit(self.textsurface,(0,0))
-                        self.textsurface.set_alpha(self.textsurface_counter)
-                        self.textsurface_counter -= 10
-                        #print("zzzz {0}".format(self.textsurface_counter))
-                      
-                        
-
-                    ## added a clock to control FPS
-                    clock.tick(FPS)
-                    
-                    ## update screen
-                    pg.display.flip()
-                    
-                    
-                    ## retain prev mouse pos
-                    prev_m = m
+                        if 'key' in event.dict:
+                            self.output("Key {0} released".format(event.key))
                 
+                if GAME_MODE['CURRENT_MODE'] is MODE_DEFINE_CONTROLS:
+                    
+                    ## noddy bit for define controls
+                    
+                    #define start position (y) for list of controls
+                    yy = ( HEIGHT / 2 ) - (len(self.controls) * (FONT_HEIGHT+2)) /2 
+                    
+                    # go through list of control and high light the current one
+                    for p in range(len(self.controls)):                    
+                        if p==self.control_index: colour = (255,255,128)
+                        else: colour = (128,128,128)
+                        thing = self.controls[p]['name']
+                        panel = font.render(thing, True, (0, 0, 0), colour)
+                        self.screen.blit(panel, ((WIDTH / 2) - panel.get_width() / 2 , yy))
+                        yy += FONT_HEIGHT + 2
+                    
+                    # if a button is pressed and not already assigned to a control ...
+                    if button_number is not None and button_number not in self.used_buttons:
+                        self.controls[self.control_index]['button'] = button_number
+                        self.used_buttons = [c['button'] for c in self.controls]
+                        self.control_index += 1
+                    
+                    # if a key is pressed and not already assigned to a control ...
+                    if key_number is not None and key_number not in self.used_keys:
+                        self.controls[self.control_index]['key'] = key_number
+                        self.control_index += 1
+                        self.used_keys = [c['key'] for c in self.controls]
+                        
+                    # if the list of controls is exhasusted, move on
+                    if self.control_index == len(self.controls):
+                        GAME_MODE['CURRENT_MODE'] = MODE_MAIN
+                        config['controls_set'] = True
+                        save_config(config)
+                        
+                    pass
+                
+                if GAME_MODE['CURRENT_MODE'] is MODE_MAIN:
+                    # update logic for this mode
+                    if key_number is not None:
+                        c = [c for c in self.controls if key_number == c['key']]
+                        #print ('pressed', key_number, c, self.controls)
+                        if len(c)>0:
+                            print (key_number)
+                                        
+                elif GAME_MODE['CURRENT_MODE'] is PLAYING:
+                    # update logic for this other mode
+                    pass                            
+          
+                if self.textsurface_counter > 0:
+                    self.screen.blit(self.textsurface,(0,0))
+                    self.textsurface.set_alpha(self.textsurface_counter)
+                    self.textsurface_counter -= 10
+                
+                ## added a clock to control FPS
+                clock.tick(FPS)
+                
+                ## update screen
+                pg.display.flip()
                 
                 
         except Exception as al:
@@ -252,13 +276,9 @@ class main_screen :
         pg.quit()
 
 
-
-
-
-
 if __name__ == "__main__":
     # Create an instance of the class
     clock = pg.time.Clock()
-    player = main_screen()
+    player = main_screen(config['controls'], config['controls_set'])
     player.joystick_setup()
     player.start(clock)

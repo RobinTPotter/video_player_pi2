@@ -1,0 +1,20 @@
+thumbnails=/home/pi/video_player_pi/static/thumbnails
+
+file="$(basename "$1")"
+if [ -d "$thumbnails/$file" ]
+then
+	echo directory exits, exit
+	exit
+fi
+mkdir "$thumbnails/$file"
+for s in $(seq 1 250 20000)
+do
+	echo $s
+	avconv -y -ss $s -i "$1" -vcodec png -frames 1 "$thumbnails/$file/$(printf "%06d" $s).png" > /dev/null 2>&1
+	if [ ! -f "$thumbnails/$file/$(printf "%06d" $s).png" ]
+	then
+		echo end reached
+		exit
+	fi
+
+done
