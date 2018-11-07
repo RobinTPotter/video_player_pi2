@@ -1,3 +1,8 @@
+from config import LOGNAME
+import logging
+logger = logging.getLogger(LOGNAME)
+logger.info('importing omxplayer controller')
+
 from subprocess import Popen, PIPE, STDOUT
 
 commands = [
@@ -12,24 +17,23 @@ commands = [
     {'letter': 'kill', 'name': 'killall' },
 ]
 
+logger.info('So should this')
+
 omxplayer_process = None
 
 def send_command(command, callback):
     '''
-    send command to the process 
-    
+    send command to the process, command being literally the key pressed
     '''
-    showMenu = False
-    if command in [x['letter'] for x in commands]: 
+    
+    if command in [com['letter'] for com in commands]: 
         commando = [c for c in commands if c['letter']==command][0]
         if 'alt' in commando.keys(): command = commando['alt']
+        
         try:
-            #print('sending >'+ command +'<')
-            #stdo, stde = omxplayer_process.communicate(command+'\0')
-            #print('stdo: '+str(stdo))
-            #print('stde: '+str(stde))
-            print('why dyour force it')
+
             if not command=='kill':
+                global omxplayer_process
                 omxplayer_process.stdin.write(command)
             else:
                 getproc = Popen('pgrep omxplayer'.split(),stdin=PIPE,stdout=PIPE)
@@ -48,3 +52,4 @@ def play(thing,pos):
     global omxplayer_process
     omxplayer_process = Popen(['omxplayer', '-b',file,'--pos',pos], stdout=PIPE, stdin=PIPE, stderr=STDOUT)    
     print(omxplayer_process)
+

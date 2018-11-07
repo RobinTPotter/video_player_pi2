@@ -1,3 +1,27 @@
+from config import LOGNAME, LOGFILE, LOGSIZE, FILE_LOG_LEVEL, CONSOLE_LOG_LEVEL
+import logging
+import logging.handlers
+logger = logging.getLogger(LOGNAME)
+
+# Add the log message handler to the logger
+file_handler = logging.handlers.RotatingFileHandler(LOGFILE,
+                                               maxBytes=LOGSIZE,
+                                               backupCount=5,
+                                               )
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(formatter)
+console_handler.setLevel(CONSOLE_LOG_LEVEL)
+logger.addHandler(console_handler)
+
+
+logger.addHandler(file_handler)
+logger.setLevel(FILE_LOG_LEVEL)
+logger.info('hello')
+
 
 import pygame as pg
 import os
@@ -6,6 +30,13 @@ import time
 import random
 import glob 
 from os.path import basename
+
+
+
+
+
+import librarian
+
 
 pg.init()
 pg.joystick.init()
@@ -42,17 +73,21 @@ default = {'size': [720,576], \
 def save_config(config):
     with open(config_file,'w') as fp:
         fp.write(json.dumps(config))
+        logger.debug('saving')
+        logger.debug(config)
 
 def load_config():
     if config_file in os.listdir('.'):
         with open(config_file,'r') as fp:
-            print ("reading config: {0}".format(config_file))
+            logger.debug('loading from {cf}'.format(cf=config_file))
             return json.loads(fp.read())
     else:
-        print("no config found: {0}".format(config_file))
+        logger.warning("no config found: {0}".format(config_file))
         return default
 
 config = load_config()
+
+lib = librarian.librarian(thumbnails = config['thumbnails'], media_dirs = config['dir'], extensions = config['ext'])
 
 ## capture additional config options not saved before
 for dk in default:
@@ -79,6 +114,8 @@ GAME_MODE = {}
 GAME_MODE['GAME_MODES'] = [MODE_DEFINE_CONTROLS, MODE_MAIN, PLAYING]
 GAME_MODE['CURRENT_MODE'] = GAME_MODE['GAME_MODES'][0]
 
+logger.debug(GAME_MODE)
+
 ##https://learn.adafruit.com/pi-video-output-using-pygame/pointing-pygame-to-the-framebuffer
 ##stolen from here with grateful thanks
 class main_screen :
@@ -104,7 +141,7 @@ class main_screen :
         # http://www.karoltomala.com/blog/?p=679
         disp_no = os.getenv("DISPLAY")
         if disp_no:
-            print("I'm running under X display = {0}".format(disp_no))
+            logger.debug("I'm running under X display = {0}".format(disp_no))
         
         # Check which frame buffer drivers are available
         # Start with fbcon since directfb hangs with composite output
@@ -117,17 +154,17 @@ class main_screen :
             try:
                 pg.display.init()
             except pg.error:
-                print('Driver: {0} failed.'.format(driver))
+                logger.error('Driver: {0} failed.'.format(driver))
                 continue
             found = True
-            print('Driver: {0} assigned.'.format(driver))
+            logger.info('Driver: {0} assigned.'.format(driver))
             break
     
         if not found:
             raise Exception('No suitable video driver found!')
         
         size = (pg.display.Info().current_w, pg.display.Info().current_h)
-        print("Framebuffer size: {0} x {1}".format(size[0], size[1]))
+        logger.info("Framebuffer size: {0} x {1}".format(size[0], size[1]))
         self.screen = pg.display.set_mode(size) #, pg.FULLSCREEN)
         # Clear the screen to start
         self.screen.fill((0, 0, 0))        
@@ -159,7 +196,7 @@ class main_screen :
             
     ##one line feed back to screen, setting a opacity/counter for fade out
     def output(self, message):
-        print(message)
+        logger.debug(message)
         self.textsurface = font.render(message, True, (0, 0, 0),(255,255,255))
         self.textsurface_counter = MESSAGE_LENGTH
       
@@ -176,7 +213,7 @@ class main_screen :
                     
                 self.tick+=1
                 
-                if self.tick%100==0: print (GAME_MODE['CURRENT_MODE'])
+                if self.tick%100==0: logger.debug('tick {0}'.format(GAME_MODE['CURRENT_MODE']))
                 
                 red = (0, 0, 0)
                 self.screen.fill(red)
@@ -188,18 +225,22 @@ class main_screen :
                 # heavily doctored from Adafruit example
                 for event in pg.event.get(): # User did something
                     if event.type == pg.QUIT or ( event.type == pg.KEYDOWN and event.key == 27 ): # If user clicked close
+                        logger.info('quit detected')
                         done=True # Flag that we are done so we exit this loop
+                        logger.info('done set True')
+
+                        
                     
                     # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
                     if event.type == pg.JOYBUTTONDOWN or ( event.type == pg.KEYDOWN ):
                         if 'button' in event.dict:
                             self.output("Joystick button {0} pressed".format(event.button))
-                            #print(self.used_buttons)
+                            logger.debug(self.used_buttons)
                             button_number = event.button
                             
                         if 'key' in event.dict:
                             self.output("Key {0} pressed".format(event.key))
-                            #print(self.used_keys)
+                            logger.debug(self.used_keys)
                             key_number = event.key
                         
                     if event.type == pg.JOYBUTTONUP or ( event.type == pg.KEYUP ):
@@ -251,7 +292,7 @@ class main_screen :
                         c = [c for c in self.controls if key_number == c['key']]
                         #print ('pressed', key_number, c, self.controls)
                         if len(c)>0:
-                            print (key_number)
+                            logger.debug (key_number)
                                         
                 elif GAME_MODE['CURRENT_MODE'] is PLAYING:
                     # update logic for this other mode
@@ -270,9 +311,10 @@ class main_screen :
                 
                 
         except Exception as al:
-            print("{0}".format(al))
+            logger.error("{0}".format(al))
             pass
 
+        logger.info('quit pygame')
         pg.quit()
 
 
@@ -282,3 +324,4 @@ if __name__ == "__main__":
     player = main_screen(config['controls'], config['controls_set'])
     player.joystick_setup()
     player.start(clock)
+    
