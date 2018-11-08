@@ -7,6 +7,7 @@ import os
 import glob
 import fnmatch
 import threading
+import requests
 
 
 
@@ -35,7 +36,7 @@ class file:
         self.filename = filename
         self.length = avconv_controller.duration(filename)
 
-    def __str__(self):
+    def __repr__(self):
         return '{0} ({1}): {2}min'.format(self.name,self.filename,int(self.length/60))
 
     def thumbnail(self,thumbnail_dir):
@@ -45,6 +46,10 @@ class file:
 class librarian:
 
     files = []
+
+    def call_imdb(self, title):
+        search = title.lowercase().replace(' ','+')
+        response = requests.get('https://www.imdb.com/find?q={0}&s=all'.format(search)).content
 
     def __init__(self, **kwargs):
 
@@ -63,6 +68,6 @@ class librarian:
                 logger.info ('checking for {1} in {0}'.format(dir, ext))
                 files = files + [file(f) for f in find_files(dir, '*.' + ext)]
 
-        logger.debug(str((files, files[0])))
+        logger.debug(str(files))
 
 

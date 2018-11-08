@@ -60,11 +60,11 @@ default = {'size': [720,576], \
     'dir': ['~'], \
     'controls_set': False, \
     'controls': [ 
-        {'name': 'up', 'button': None, 'key': None}, 
-        {'name': 'down', 'button': None, 'key': None}, 
-        {'name': 'left', 'button': None, 'key': None}, 
-        {'name': 'right', 'button': None, 'key': None}, 
-        {'name': 'fire', 'button': None, 'key': None}    
+        {'name': 'up', 'button': None, 'key': None, 'callback': None}, 
+        {'name': 'down', 'button': None, 'key': None, 'callback': None}, 
+        {'name': 'left', 'button': None, 'key': None, 'callback': None}, 
+        {'name': 'right', 'button': None, 'key': None, 'callback': None}, 
+        {'name': 'fire', 'button': None, 'key': None, 'callback': None}    
     ]
 }
 
@@ -96,6 +96,7 @@ for dk in default:
 
 ## resave possibily changed config
 save_config(config)
+
 
 ## initial settings for screen size/refresh rate
 
@@ -135,7 +136,15 @@ class main_screen :
         self.controls = controls
         if controls_set is False: GAME_MODE['CURRENT_MODE'] = MODE_DEFINE_CONTROLS
         else: GAME_MODE['CURRENT_MODE'] = MODE_MAIN
-    
+        
+        '''
+        [c for c in self.controls if c['name']=='up'][0]['callback']=self.up
+        [c for c in self.controls if c['name']=='down'][0]['callback']=self.down
+        [c for c in self.controls if c['name']=='left'][0]['callback']=self.left
+        [c for c in self.controls if c['name']=='right'][0]['callback']=self.right
+        [c for c in self.controls if c['name']=='fire'][0]['callback']=self.fire
+        '''
+        
         "Ininitializes a new pg screen using the framebuffer"
         # Based on "Python GUI in Linux frame buffer"
         # http://www.karoltomala.com/blog/?p=679
@@ -292,7 +301,12 @@ class main_screen :
                         c = [c for c in self.controls if key_number == c['key']]
                         #print ('pressed', key_number, c, self.controls)
                         if len(c)>0:
-                            logger.debug (key_number)
+                            logger.debug ((key_number, c[0]))
+                            if c[0]['name'] == 'up': self.output('up')
+                            if c[0]['name'] == 'down': self.output('down')
+                            if c[0]['name'] == 'left': self.output('left')
+                            if c[0]['name'] == 'right': self.output('right')
+                            if c[0]['name'] == 'fire': self.output('fire')
                                         
                 elif GAME_MODE['CURRENT_MODE'] is PLAYING:
                     # update logic for this other mode
