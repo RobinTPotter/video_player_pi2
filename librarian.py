@@ -1,7 +1,6 @@
 from config import LOGNAME, THUMBNAIL_INTERVAL, SSL_VERIFY
 import logging
 logger = logging.getLogger(LOGNAME)
-logger.info('importing the librarian')
 
 import os
 import glob
@@ -66,7 +65,7 @@ class file:
         # load the description.txt if it exists
         if 'description.txt' in os.listdir(self.thumbnail_dir):
             with open(self.thumbnail_dir+'/description.txt','r') as fl:
-                self.description = fl.read()                
+                self.description = fl.read()              
             logger.debug('description read, {0} for {1}'.format(self.description,self.filename))
         else:
             logger.warn('no description found')
@@ -126,21 +125,37 @@ class file:
             main_page_soup = BeautifulSoup(main_page_response, 'html.parser')
         
             image_url = main_page_soup.find_all('div', attrs={'class': 'poster'})[0].a.img['src']
-            self.description = main_page_soup.find_all('div', attrs={'class': 'summary_text'})[0].text
-            self.name = main_page_soup.find_all('div', attrs={'class': 'title_wrapper'})[0].h1.text
+            description = main_page_soup.find_all('div', attrs={'class': 'summary_text'})[0].text
+            name = main_page_soup.find_all('div', attrs={'class': 'title_wrapper'})[0].h1.text
+            
+            logger.debug('parsed pages')
+            
+            description = ''.join([c if ord(c) < 128 else ' ' for c in description])
+            name = ''.join([c if ord(c) < 128 else ' ' for c in name])
+            
+            self.description = description.strip()
+            self.name = name.strip()
+            
+            logger.debug('{0} {1}'.format(self.description, self.name))
             
             # write out file
             with open(self.thumbnail_dir + '/title.jpg','wb') as output_image_file:
                 stuff = requests.get(image_url, verify=False).content
                 output_image_file.write(stuff)                
+            
+            logger.debug('written title')
                 
             # write out file
             with open(self.thumbnail_dir + '/name.txt','w') as output_name_file:
-                output_name_file.write(self.name)
+                output_name_file.write('{0}'.format(self.name))
+                
+            logger.debug('written name')    
                 
             # write out file
             with open(self.thumbnail_dir + '/description.txt','w') as output_desc_file:
-                output_desc_file.write(self.description)
+                output_desc_file.write('{0}'.format(self.description))
+                
+            logger.debug('written description')
                 
         except Exception as e:
             logger.error('imdb image/title/descr results {0}'.format(e))
