@@ -36,7 +36,7 @@ class file:
 
     def __init__(self, filename, thumbnail_dir):
         self.filename = filename
-        self.thumbnail_dir = thumbnail_dir+'/'+ntpath.basename(filename)
+        self.thumbnail_dir = thumbnail_dir+'/'+filename.replace('/','_')
         if not os.path.exists(self.thumbnail_dir): os.makedirs(self.thumbnail_dir)
         self.length = avconv_controller.duration(filename)
         self.thumbnail()
