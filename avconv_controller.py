@@ -24,7 +24,7 @@ def duration(file):
         print (result)
         return result['duration']
     except Exception as e:
-        print ('duration calculation',e)
+        logger.error('duration \'{0}\': {1}'.format(file,e))
         return 0
         
 def thumbnail(position,file,thumbnail):
@@ -36,7 +36,7 @@ def thumbnail(position,file,thumbnail):
         )
         return thumbnail
     except Exception as e:
-        print (e)
+        logger.error('thumbnail \'{0}\': {1}'.format(file,e))
         return None
 
 
@@ -49,4 +49,4 @@ def thumbnails(file, thumbnail_dir, start, end, interval):
         if result is None: check_for_error = True
         results.append(result)
     
-    return { 'results': results, error: check_for_error }
+    return { 'results': results, 'error': check_for_error }
