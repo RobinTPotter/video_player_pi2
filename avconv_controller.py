@@ -19,7 +19,7 @@ def duration(file):
         hh,mm,ss=[float(n) for n in re.search('Duration: [0-9]*:[0-9]*:[0-9]*\.[0-9]*',result).group(0).replace('Duration: ','').split(':')]
         duration = ss + mm*60 + hh*60*60
         logger.debug('values return {0} {1} {2} is {3}'.format(hh,mm,ss,duration))
-        return duration
+        return int(duration)
     except Exception as e:
         logger.error('duration \'{0}\': {1}'.format(file,e))
         return 0
