@@ -9,20 +9,17 @@ import json
 
 avconv_process = None
 
-#for s in $(seq 1 250 20000)
-#avconv -y -ss $s -i "$1" -vcodec png -frames 1 "$thumbnails/$file/$(printf "%06d" $s).png" > /dev/null 2>&1
-
-
-
 def duration(file):
     try:
         avprobe_process = Popen(
-            '{exe_avprobe} -v quiet -of json "{file}"'
+            '{exe_avprobe} "{file}"'
                 .format(exe_avprobe=exe_avprobe,file=file).split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT
         )
-        result = json.loads(avprobe_process.stdout)
-        print (result)
-        return result['duration']
+        result = avprobe_process.stdout.read()
+        hh,mm,ss=[float(n) for n in re.search('Duration: [0-9]*:[0-9]*:[0-9]*\.[0-9]*',result).group(0).replace('Duration: ','').split(':')]
+        duration = ss + mm*60 + hh*60*60
+        logger.debug('values return {0} {1} {2} is {3}'.format(hh,mm,ss,duration))
+        return duration
     except Exception as e:
         logger.error('duration \'{0}\': {1}'.format(file,e))
         return 0
