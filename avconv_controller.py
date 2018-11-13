@@ -1,3 +1,6 @@
+
+
+
 from config import LOGNAME, exe_avprobe, exe_avconv
 import logging
 logger = logging.getLogger(LOGNAME)
@@ -5,32 +8,43 @@ logger.info('importing avconv/ffmpeg controller')
 
 
 from subprocess import Popen, PIPE, STDOUT
-import json
+import re
 
 avconv_process = None
 
 def duration(file):
     try:
+        logger.debug('determine duration of {0}'.format(file))
         avprobe_process = Popen(
-            '{exe_avprobe} "{file}"'
-                .format(exe_avprobe=exe_avprobe,file=file).split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT
+            ['{exe_avprobe}'.format(exe_avprobe=exe_avprobe),'{file}'.format(file=file)],
+               stdout=PIPE, stdin=PIPE, stderr=STDOUT
+               # 2>&1 | grep -Eo "Duration: [0-9:\.]*" | sed "s/Duration: //"'
         )
-        result = avprobe_process.stdout.read()
-        hh,mm,ss=[float(n) for n in re.search('Duration: [0-9]*:[0-9]*:[0-9]*\.[0-9]*',result).group(0).replace('Duration: ','').split(':')]
-        duration = ss + mm*60 + hh*60*60
-        logger.debug('values return {0} {1} {2} is {3}'.format(hh,mm,ss,duration))
-        return int(duration)
+        result,err = avprobe_process.communicate()
+        #logger.debug('results {0}'.format(result))
+        result = str(result)
+        duration = re.search('Duration: [0-9]+:[0-9]+:[0-9]+\.[0-9]+',result).group(0)
+        duration = duration.replace('Duration: ','')
+        hh,mm,ss = [float(d) for d in duration.split(':')]
+        logger.debug('duration {0}, {1}, {2}, {3}'.format(duration, hh, mm, ss))
+        return int(hh*60*60+mm*60+ss)
     except Exception as e:
         logger.error('duration \'{0}\': {1}'.format(file,e))
         return 0
         
 def thumbnail(position,file,thumbnail):
     try:
+        cmd = '{exe_avconv} -y -ss {position} -i'.format(exe_avconv=exe_avconv, position=position).split()+ \
+            ['{file}'.format(file=file)]+ \
+            '-vcodec png -frames 1'.split()+ \
+            ['{thumbnail}'.format(thumbnail=thumbnail)]
+        logger.debug('command {0}'.format(' '.join(cmd)))
         avconv_process = Popen(
-            '{exe_avconv} -y -ss {position} -i "{file}" -vcodec png -frames 1 "{thumbnail}"'
-                .format(exe_avconv=exe_avconv, position=position,file=file,thumbnail=thumbnail)
-                .split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT
+             cmd, stdout=PIPE, stdin=PIPE, stderr=STDOUT
         )
+        out,err = avconv_process.communicate()
+        logger.debug(err)
+        logger.debug('thumbnail at {0}'.format(position))
         return thumbnail
     except Exception as e:
         logger.error('thumbnail \'{0}\': {1}'.format(file,e))
@@ -38,6 +52,7 @@ def thumbnail(position,file,thumbnail):
 
 
 def thumbnails(file, thumbnail_dir, start, end, interval):
+    logger.debug('generate thumbnails of {0}'.format(file))
     check_for_error = False
     results = []
     for pos in range(start,end,interval):
