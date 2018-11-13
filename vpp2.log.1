@@ -1,187 +1,360 @@
-2018-11-12 23:48:51,787 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[avi @ 0x1505e50] Format avi detected only with low score of 1, misdetection possible!\ntests/m1/the_taking_of_pelham_one_two_three.avi: Invalid data found when processing input\n"
-2018-11-12 23:48:51,789 - avconv_controller.py - ERROR - duration 'tests/m1/the_taking_of_pelham_one_two_three.avi': 'NoneType' object has no attribute 'group'
-2018-11-12 23:48:51,798 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
-2018-11-12 23:48:51,800 - librarian.py - DEBUG - name read, The Taking of Pelham One Two Three (1974) for tests/m1/the_taking_of_pelham_one_two_three.avi
-2018-11-12 23:48:51,802 - librarian.py - DEBUG - description read, In New York, armed men hijack a subway car and demand a ransom for the passengers. Even if it's paid, how could they get away? for tests/m1/the_taking_of_pelham_one_two_three.avi
-2018-11-12 23:48:51,803 - librarian.py - INFO - generating thumbnails
-2018-11-12 23:48:51,804 - librarian.py - INFO - ran thumbnail conversion
-2018-11-12 23:48:52,226 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[avi @ 0xbade50] Format avi detected only with low score of 1, misdetection possible!\ntests/m1/hello2.avi: Invalid data found when processing input\n"
-2018-11-12 23:48:52,228 - avconv_controller.py - ERROR - duration 'tests/m1/hello2.avi': 'NoneType' object has no attribute 'group'
-2018-11-12 23:48:52,232 - librarian.py - WARNING - no title found
-2018-11-12 23:48:52,239 - librarian.py - WARNING - no name found
-2018-11-12 23:48:52,240 - librarian.py - WARNING - no description found
-2018-11-12 23:48:52,241 - librarian.py - INFO - generating thumbnails
-2018-11-12 23:48:52,242 - librarian.py - INFO - ran thumbnail conversion
-2018-11-12 23:48:52,245 - librarian.py - INFO - calling imdb for hello 2 avi
-2018-11-12 23:48:59,785 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-12 23:48:59,786 - librarian.py - INFO - checking /home/pi
-2018-11-12 23:48:59,787 - librarian.py - INFO - checking for mp4 in /home/pi
-2018-11-12 23:49:02,134 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/BringingUpBaby(1938).mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    title           : Bringing Up Baby ( 1938) - https://archive.org/details/BringingUpBaby\n    encoder         : Lavf57.21.101\n  Duration: 01:37:54.00, start: 0.000000, bitrate: 830 kb/s\n    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 640x480 [SAR 123:124 DAR 41:31], 697 kb/s, 25 fps, 25 tbr, 12800 tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
-2018-11-12 23:49:02,160 - avconv_controller.py - DEBUG - duration 01:37:54.00, 1.0, 37.0, 54.0
-2018-11-12 23:49:02,173 - librarian.py - WARNING - no title found
-2018-11-12 23:49:02,175 - librarian.py - WARNING - no name found
-2018-11-12 23:49:02,177 - librarian.py - WARNING - no description found
-2018-11-12 23:49:02,181 - librarian.py - INFO - generating thumbnails
-2018-11-12 23:49:02,591 - librarian.py - INFO - ran thumbnail conversion
-2018-11-12 23:49:02,631 - librarian.py - INFO - calling imdb for Bringing Up Baby( 1938) mp 4
-2018-11-12 23:49:14,148 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-12 23:54:31,460 - video_player_pi2.py - INFO - hello
-2018-11-12 23:54:33,190 - avconv_controller.py - INFO - importing avconv/ffmpeg controller
-2018-11-12 23:54:34,499 - video_player_pi2.py - DEBUG - loading from config.file.txt
-2018-11-12 23:54:34,502 - librarian.py - INFO - checking tests/m1
-2018-11-12 23:54:34,502 - librarian.py - INFO - checking for mp4 in tests/m1
-2018-11-12 23:54:36,918 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1e94e50] Format mov,mp4,m4a,3gp,3g2,mj2 detected only with low score of 1, misdetection possible!\n[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1e94e50] moov atom not found\ntests/m1/hello.mp4: Invalid data found when processing input\n"
-2018-11-12 23:54:36,976 - avconv_controller.py - ERROR - duration 'tests/m1/hello.mp4': 'NoneType' object has no attribute 'group'
-2018-11-12 23:54:37,045 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
-2018-11-12 23:54:37,048 - librarian.py - DEBUG - name read, Hello, My Name Is Doris (2015) for tests/m1/hello.mp4
-2018-11-12 23:54:37,058 - librarian.py - DEBUG - description read, A self-help seminar inspires a sixty-something woman to romantically pursue her younger co-worker. for tests/m1/hello.mp4
-2018-11-12 23:54:37,061 - librarian.py - INFO - generating thumbnails
-2018-11-12 23:54:37,063 - librarian.py - INFO - ran thumbnail conversion
-2018-11-12 23:54:37,064 - librarian.py - INFO - checking for avi in tests/m1
-2018-11-12 23:54:38,160 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[avi @ 0x149ce50] Format avi detected only with low score of 1, misdetection possible!\ntests/m1/the_taking_of_pelham_one_two_three.avi: Invalid data found when processing input\n"
-2018-11-12 23:54:38,162 - avconv_controller.py - ERROR - duration 'tests/m1/the_taking_of_pelham_one_two_three.avi': 'NoneType' object has no attribute 'group'
-2018-11-12 23:54:38,171 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
-2018-11-12 23:54:38,173 - librarian.py - DEBUG - name read, The Taking of Pelham One Two Three (1974) for tests/m1/the_taking_of_pelham_one_two_three.avi
-2018-11-12 23:54:38,175 - librarian.py - DEBUG - description read, In New York, armed men hijack a subway car and demand a ransom for the passengers. Even if it's paid, how could they get away? for tests/m1/the_taking_of_pelham_one_two_three.avi
-2018-11-12 23:54:38,176 - librarian.py - INFO - generating thumbnails
-2018-11-12 23:54:38,176 - librarian.py - INFO - ran thumbnail conversion
-2018-11-12 23:54:38,797 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[avi @ 0x1a1ae50] Format avi detected only with low score of 1, misdetection possible!\ntests/m1/hello2.avi: Invalid data found when processing input\n"
-2018-11-12 23:54:38,798 - avconv_controller.py - ERROR - duration 'tests/m1/hello2.avi': 'NoneType' object has no attribute 'group'
-2018-11-12 23:54:38,802 - librarian.py - WARNING - no title found
-2018-11-12 23:54:38,803 - librarian.py - WARNING - no name found
-2018-11-12 23:54:38,804 - librarian.py - WARNING - no description found
-2018-11-12 23:54:38,805 - librarian.py - INFO - generating thumbnails
-2018-11-12 23:54:38,806 - librarian.py - INFO - ran thumbnail conversion
-2018-11-12 23:54:38,831 - librarian.py - INFO - calling imdb for hello 2 avi
-2018-11-12 23:54:46,646 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-12 23:54:46,648 - librarian.py - INFO - checking /home/pi
-2018-11-12 23:54:46,648 - librarian.py - INFO - checking for mp4 in /home/pi
-2018-11-12 23:54:48,721 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/BringingUpBaby(1938).mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    title           : Bringing Up Baby ( 1938) - https://archive.org/details/BringingUpBaby\n    encoder         : Lavf57.21.101\n  Duration: 01:37:54.00, start: 0.000000, bitrate: 830 kb/s\n    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 640x480 [SAR 123:124 DAR 41:31], 697 kb/s, 25 fps, 25 tbr, 12800 tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
-2018-11-12 23:54:48,777 - avconv_controller.py - DEBUG - duration 01:37:54.00, 1.0, 37.0, 54.0
-2018-11-12 23:54:48,813 - librarian.py - WARNING - no title found
-2018-11-12 23:54:48,815 - librarian.py - WARNING - no name found
-2018-11-12 23:54:48,816 - librarian.py - WARNING - no description found
-2018-11-12 23:54:48,818 - librarian.py - INFO - generating thumbnails
-2018-11-12 23:54:48,883 - avconv_controller.py - DEBUG - thumbnail at 0
-2018-11-12 23:54:48,902 - avconv_controller.py - DEBUG - thumbnail at 250
-2018-11-12 23:54:48,921 - avconv_controller.py - DEBUG - thumbnail at 500
-2018-11-12 23:54:48,941 - avconv_controller.py - DEBUG - thumbnail at 750
-2018-11-12 23:54:48,961 - avconv_controller.py - DEBUG - thumbnail at 1000
-2018-11-12 23:54:48,984 - avconv_controller.py - DEBUG - thumbnail at 1250
-2018-11-12 23:54:49,007 - avconv_controller.py - DEBUG - thumbnail at 1500
-2018-11-12 23:54:49,029 - avconv_controller.py - DEBUG - thumbnail at 1750
-2018-11-12 23:54:49,043 - avconv_controller.py - DEBUG - thumbnail at 2000
-2018-11-12 23:54:49,061 - avconv_controller.py - DEBUG - thumbnail at 2250
-2018-11-12 23:54:49,077 - avconv_controller.py - DEBUG - thumbnail at 2500
-2018-11-12 23:54:49,100 - avconv_controller.py - DEBUG - thumbnail at 2750
-2018-11-12 23:54:49,122 - avconv_controller.py - DEBUG - thumbnail at 3000
-2018-11-12 23:54:49,161 - avconv_controller.py - DEBUG - thumbnail at 3250
-2018-11-12 23:54:49,200 - avconv_controller.py - DEBUG - thumbnail at 3500
-2018-11-12 23:54:49,215 - avconv_controller.py - DEBUG - thumbnail at 3750
-2018-11-12 23:54:49,230 - avconv_controller.py - DEBUG - thumbnail at 4000
-2018-11-12 23:54:49,244 - avconv_controller.py - DEBUG - thumbnail at 4250
-2018-11-12 23:54:49,259 - avconv_controller.py - DEBUG - thumbnail at 4500
-2018-11-12 23:54:49,297 - avconv_controller.py - DEBUG - thumbnail at 4750
-2018-11-12 23:54:49,309 - avconv_controller.py - DEBUG - thumbnail at 5000
-2018-11-12 23:54:49,320 - avconv_controller.py - DEBUG - thumbnail at 5250
-2018-11-12 23:54:49,336 - avconv_controller.py - DEBUG - thumbnail at 5500
-2018-11-12 23:54:49,349 - avconv_controller.py - DEBUG - thumbnail at 5750
-2018-11-12 23:54:49,350 - librarian.py - INFO - ran thumbnail conversion
-2018-11-12 23:54:49,428 - librarian.py - INFO - calling imdb for Bringing Up Baby( 1938) mp 4
-2018-11-12 23:55:03,381 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:01:38,491 - video_player_pi2.py - INFO - hello
-2018-11-13 00:02:15,551 - video_player_pi2.py - INFO - hello
-2018-11-13 00:02:16,371 - avconv_controller.py - INFO - importing avconv/ffmpeg controller
-2018-11-13 00:02:17,751 - video_player_pi2.py - DEBUG - loading from config.file.txt
-2018-11-13 00:02:17,755 - librarian.py - INFO - checking tests/m1
-2018-11-13 00:02:17,756 - librarian.py - INFO - checking for mp4 in tests/m1
-2018-11-13 00:02:17,760 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello.mp4
-2018-11-13 00:02:20,237 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[mov,mp4,m4a,3gp,3g2,mj2 @ 0xd0ee50] Format mov,mp4,m4a,3gp,3g2,mj2 detected only with low score of 1, misdetection possible!\n[mov,mp4,m4a,3gp,3g2,mj2 @ 0xd0ee50] moov atom not found\ntests/m1/hello.mp4: Invalid data found when processing input\n"
-2018-11-13 00:02:20,318 - avconv_controller.py - ERROR - duration 'tests/m1/hello.mp4': cannot use a string pattern on a bytes-like object
-2018-11-13 00:02:20,395 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
-2018-11-13 00:02:20,406 - librarian.py - DEBUG - name read, Hello, My Name Is Doris (2015) for tests/m1/hello.mp4
-2018-11-13 00:02:20,416 - librarian.py - DEBUG - description read, A self-help seminar inspires a sixty-something woman to romantically pursue her younger co-worker. for tests/m1/hello.mp4
-2018-11-13 00:02:20,421 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:02:20,423 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:02:20,425 - librarian.py - INFO - checking for avi in tests/m1
-2018-11-13 00:02:20,429 - avconv_controller.py - DEBUG - determine duration of tests/m1/the_taking_of_pelham_one_two_three.avi
-2018-11-13 00:02:21,789 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[avi @ 0x10d8e50] Format avi detected only with low score of 1, misdetection possible!\ntests/m1/the_taking_of_pelham_one_two_three.avi: Invalid data found when processing input\n"
-2018-11-13 00:02:21,792 - avconv_controller.py - ERROR - duration 'tests/m1/the_taking_of_pelham_one_two_three.avi': cannot use a string pattern on a bytes-like object
-2018-11-13 00:02:21,806 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
-2018-11-13 00:02:21,810 - librarian.py - DEBUG - name read, The Taking of Pelham One Two Three (1974) for tests/m1/the_taking_of_pelham_one_two_three.avi
-2018-11-13 00:02:21,813 - librarian.py - DEBUG - description read, In New York, armed men hijack a subway car and demand a ransom for the passengers. Even if it's paid, how could they get away? for tests/m1/the_taking_of_pelham_one_two_three.avi
-2018-11-13 00:02:21,816 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:02:21,817 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:02:21,829 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello2.avi
-2018-11-13 00:02:22,291 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[avi @ 0x67be50] Format avi detected only with low score of 1, misdetection possible!\ntests/m1/hello2.avi: Invalid data found when processing input\n"
-2018-11-13 00:02:22,293 - avconv_controller.py - ERROR - duration 'tests/m1/hello2.avi': cannot use a string pattern on a bytes-like object
-2018-11-13 00:02:22,367 - librarian.py - WARNING - no title found
-2018-11-13 00:02:22,368 - librarian.py - WARNING - no name found
-2018-11-13 00:02:22,369 - librarian.py - WARNING - no description found
-2018-11-13 00:02:22,369 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:02:22,370 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:02:22,377 - librarian.py - INFO - calling imdb for hello 2 avi
-2018-11-13 00:02:34,416 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:02:34,417 - librarian.py - INFO - checking /home/pi
-2018-11-13 00:02:34,417 - librarian.py - INFO - checking for mp4 in /home/pi
-2018-11-13 00:02:34,454 - avconv_controller.py - DEBUG - determine duration of /home/pi/BringingUpBaby(1938).mp4
-2018-11-13 00:02:37,380 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/BringingUpBaby(1938).mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    title           : Bringing Up Baby ( 1938) - https://archive.org/details/BringingUpBaby\n    encoder         : Lavf57.21.101\n  Duration: 01:37:54.00, start: 0.000000, bitrate: 830 kb/s\n    Stream #0:0(und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p, 640x480 [SAR 123:124 DAR 41:31], 697 kb/s, 25 fps, 25 tbr, 12800 tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
-2018-11-13 00:02:37,440 - avconv_controller.py - ERROR - duration '/home/pi/BringingUpBaby(1938).mp4': cannot use a string pattern on a bytes-like object
-2018-11-13 00:02:37,457 - librarian.py - WARNING - no title found
-2018-11-13 00:02:37,459 - librarian.py - WARNING - no name found
-2018-11-13 00:02:37,461 - librarian.py - WARNING - no description found
-2018-11-13 00:02:37,462 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:02:37,464 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:02:37,466 - librarian.py - INFO - calling imdb for Bringing Up Baby( 1938) mp 4
-2018-11-13 00:02:45,431 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:02:45,433 - avconv_controller.py - DEBUG - determine duration of /home/pi/Timeshift_Series_13_-_5._The_Ladybird_Books_Story_The_Bugs_That_Got_Britain_Reading_b03mp53s_original.mp4
-2018-11-13 00:02:48,049 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Timeshift_Series_13_-_5._The_Ladybird_Books_Story_The_Bugs_That_Got_Britain_Reading_b03mp53s_original.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n  Duration: 00:58:35.00, start: -0.018667, bitrate: 755 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 433 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
-2018-11-13 00:02:48,105 - avconv_controller.py - ERROR - duration '/home/pi/Timeshift_Series_13_-_5._The_Ladybird_Books_Story_The_Bugs_That_Got_Britain_Reading_b03mp53s_original.mp4': cannot use a string pattern on a bytes-like object
-2018-11-13 00:02:48,111 - librarian.py - WARNING - no title found
-2018-11-13 00:02:48,113 - librarian.py - WARNING - no name found
-2018-11-13 00:02:48,114 - librarian.py - WARNING - no description found
-2018-11-13 00:02:48,115 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:02:48,116 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:02:48,119 - librarian.py - INFO - calling imdb for Timeshift Series 13 - 5  The Ladybird Books Story The Bugs That Got Britain Reading b 03mp 53s original mp 4
-2018-11-13 00:02:50,379 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:02:50,389 - avconv_controller.py - DEBUG - determine duration of /home/pi/Cinderella.the.Cat.2017.720p.BluRay.x264-[YTS.ME].mp4
-2018-11-13 00:02:53,753 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Cinderella.the.Cat.2017.720p.BluRay.x264-[YTS.ME].mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.71.100\n  Duration: 01:26:56.03, start: 0.000000, bitrate: 1136 kb/s\n    Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 1280x676 [SAR 1:1 DAR 320:169], 1001 kb/s, 24 fps, 24 tbr, 12288 tbn, 48 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
-2018-11-13 00:02:53,802 - avconv_controller.py - ERROR - duration '/home/pi/Cinderella.the.Cat.2017.720p.BluRay.x264-[YTS.ME].mp4': cannot use a string pattern on a bytes-like object
-2018-11-13 00:02:53,834 - librarian.py - WARNING - no title found
-2018-11-13 00:02:53,835 - librarian.py - WARNING - no name found
-2018-11-13 00:02:53,837 - librarian.py - WARNING - no description found
-2018-11-13 00:02:53,839 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:02:53,850 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:02:53,853 - librarian.py - INFO - calling imdb for Cinderella the Cat 2017 720p Blu Ray x 264-[YTS ME] mp 4
-2018-11-13 00:02:56,197 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:02:56,198 - avconv_controller.py - DEBUG - determine duration of /home/pi/Killing_Eve_Series_1_-_2._Ill_Deal_With_Him_Later_p06kc8mb_original.mp4
-2018-11-13 00:02:58,376 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Killing_Eve_Series_1_-_2._Ill_Deal_With_Him_Later_p06kc8mb_original.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n  Duration: 00:41:59.80, start: -0.018667, bitrate: 744 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 421 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
-2018-11-13 00:02:58,427 - avconv_controller.py - ERROR - duration '/home/pi/Killing_Eve_Series_1_-_2._Ill_Deal_With_Him_Later_p06kc8mb_original.mp4': cannot use a string pattern on a bytes-like object
-2018-11-13 00:02:58,431 - librarian.py - WARNING - no title found
-2018-11-13 00:02:58,433 - librarian.py - WARNING - no name found
-2018-11-13 00:02:58,435 - librarian.py - WARNING - no description found
-2018-11-13 00:02:58,436 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:02:58,438 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:02:58,440 - librarian.py - INFO - calling imdb for Killing Eve Series 1 - 2  Ill Deal With Him Later p 06kc 8mb original mp 4
-2018-11-13 00:03:00,716 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:03:00,717 - avconv_controller.py - DEBUG - determine duration of /home/pi/Nigel_Kneale_Time_Shift_Documentary.mp4
-2018-11-13 00:03:01,914 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1d45e50] Format mov,mp4,m4a,3gp,3g2,mj2 detected only with low score of 1, misdetection possible!\n[mov,mp4,m4a,3gp,3g2,mj2 @ 0x1d45e50] moov atom not found\n/home/pi/Nigel_Kneale_Time_Shift_Documentary.mp4: Invalid data found when processing input\n"
-2018-11-13 00:03:01,915 - avconv_controller.py - ERROR - duration '/home/pi/Nigel_Kneale_Time_Shift_Documentary.mp4': cannot use a string pattern on a bytes-like object
-2018-11-13 00:03:01,919 - librarian.py - WARNING - no title found
-2018-11-13 00:03:01,920 - librarian.py - WARNING - no name found
-2018-11-13 00:03:01,921 - librarian.py - WARNING - no description found
-2018-11-13 00:03:01,922 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:03:01,922 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:03:01,924 - librarian.py - INFO - calling imdb for Nigel Kneale Time Shift Documentary mp 4
-2018-11-13 00:03:03,611 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:03:03,612 - avconv_controller.py - DEBUG - determine duration of /home/pi/Hey_Duggee_Series_2_-_15._The_Pizza_Badge_b08v9cr1_original.mp4
-2018-11-13 00:03:04,598 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Hey_Duggee_Series_2_-_15._The_Pizza_Badge_b08v9cr1_original.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n  Duration: 00:07:00.04, start: -0.018667, bitrate: 591 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 269 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
-2018-11-13 00:03:04,620 - avconv_controller.py - ERROR - duration '/home/pi/Hey_Duggee_Series_2_-_15._The_Pizza_Badge_b08v9cr1_original.mp4': cannot use a string pattern on a bytes-like object
-2018-11-13 00:03:04,622 - librarian.py - WARNING - no title found
-2018-11-13 00:03:04,622 - librarian.py - WARNING - no name found
-2018-11-13 00:03:04,623 - librarian.py - WARNING - no description found
-2018-11-13 00:03:04,624 - librarian.py - INFO - generating thumbnails
-2018-11-13 00:03:04,625 - librarian.py - INFO - ran thumbnail conversion
-2018-11-13 00:03:04,626 - librarian.py - INFO - calling imdb for Hey Duggee Series 2 - 15  The Pizza Badge b 08v 9cr 1 original mp 4
-2018-11-13 00:03:06,449 - librarian.py - ERROR - imdb image/title/descr results list index out of range
-2018-11-13 00:03:06,451 - avconv_controller.py - DEBUG - determine duration of /home/pi/Last_Chance_Lawyer_NYC_Series_1_-_4._Ill_Rest_when_the_Enemy_Rests_b0bqm539_original.mp4
+2018-11-13 00:03:07,877 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Last_Chance_Lawyer_NYC_Series_1_-_4._Ill_Rest_when_the_Enemy_Rests_b0bqm539_original.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n  Duration: 00:44:28.04, start: -0.018667, bitrate: 754 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 432 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
+2018-11-13 00:03:07,939 - avconv_controller.py - ERROR - duration '/home/pi/Last_Chance_Lawyer_NYC_Series_1_-_4._Ill_Rest_when_the_Enemy_Rests_b0bqm539_original.mp4': cannot use a string pattern on a bytes-like object
+2018-11-13 00:03:07,942 - librarian.py - WARNING - no title found
+2018-11-13 00:03:07,944 - librarian.py - WARNING - no name found
+2018-11-13 00:03:07,945 - librarian.py - WARNING - no description found
+2018-11-13 00:03:07,947 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:03:07,948 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:03:07,950 - librarian.py - INFO - calling imdb for Last Chance Lawyer NYC Series 1 - 4  Ill Rest when the Enemy Rests b 0bqm 539 original mp 4
+2018-11-13 00:03:09,676 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 00:03:09,681 - avconv_controller.py - DEBUG - determine duration of /home/pi/Hey_Duggee_Series_2_-_27._The_Spooky_Badge_b09czqtl_original.mp4
+2018-11-13 00:03:10,433 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\n[mov,mp4,m4a,3gp,3g2,mj2 @ 0xd44e50] stream 0, timescale not set\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Hey_Duggee_Series_2_-_27._The_Spooky_Badge_b09czqtl_original.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n    media_type      : 10\n    copyright       : 2018 British Broadcasting Corporation, all rights reserved\n    title           : The Spooky Badge\n    artist          : CBeebies\n    album_artist    : BBC TV\n    album           : Hey Duggee: Series 2\n    grouping        : Children's,Entertainment & Comedy,Animation\n    composer        : BBC iPlayer\n    genre           : Children's\n    comment         : The Squirrels are playing dress-up when they hear a ghostly sound. What is going on?\n    date            : 2017-10-28T09:20:00+01:00\n    track           : 27\n    disc            : 2\n    lyrics          : The Squirrels are playing dress-up when they hear a ghostly sound. They can see that something has spooked the chickens, so they stop what they are doing to investigate. They come across several different items, such as ghostly white footprints, and then \n                    : \n                    : EPISODE\n                    : http://www.bbc.co.uk/iplayer/episode/b09czqtl\n                    : \n                    : SERIES\n                    : http://www.bbc.co.uk/programmes/b07xdmhq\n    description     : The Squirrels are playing dress-up when they hear a ghostly sound. What is going on?\n    synopsis        : The Squirrels are playing dress-up when they hear a ghostly sound. They can see that something has spooked the chickens, so they stop what they are doing to investigate. They come across several different items, such as ghostly white footprints, and then \n    show            : Hey Duggee: Series 2\n    episode_id      : s02e27\n    season_number   : 2\n    episode_sort    : 27\n    network         : CBeebies\n  Duration: 00:07:00.04, start: -0.018667, bitrate: 636 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 314 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n    Stream #0:2: Video: mjpeg, yuvj420p(pc, bt470bg/unknown/unknown), 192x108 [SAR 72:72 DAR 16:9], 90k tbr, 90k tbn, 90k tbc\n"
+2018-11-13 00:03:10,436 - avconv_controller.py - ERROR - duration '/home/pi/Hey_Duggee_Series_2_-_27._The_Spooky_Badge_b09czqtl_original.mp4': cannot use a string pattern on a bytes-like object
+2018-11-13 00:03:10,437 - librarian.py - WARNING - no title found
+2018-11-13 00:03:10,438 - librarian.py - WARNING - no name found
+2018-11-13 00:03:10,439 - librarian.py - WARNING - no description found
+2018-11-13 00:03:10,440 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:03:10,441 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:03:10,443 - librarian.py - INFO - calling imdb for Hey Duggee Series 2 - 27  The Spooky Badge b 09czqtl original mp 4
+2018-11-13 00:03:12,265 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 00:03:12,266 - avconv_controller.py - DEBUG - determine duration of /home/pi/Hey_Duggee_Series_2_-_19._The_River_Badge_b08vy8sn_original.ts.mp4
+2018-11-13 00:03:13,012 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Hey_Duggee_Series_2_-_19._The_River_Badge_b08vy8sn_original.ts.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n  Duration: 00:07:00.00, start: -0.018667, bitrate: 630 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 307 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
+2018-11-13 00:03:13,014 - avconv_controller.py - ERROR - duration '/home/pi/Hey_Duggee_Series_2_-_19._The_River_Badge_b08vy8sn_original.ts.mp4': cannot use a string pattern on a bytes-like object
+2018-11-13 00:03:13,018 - librarian.py - WARNING - no title found
+2018-11-13 00:03:13,019 - librarian.py - WARNING - no name found
+2018-11-13 00:03:13,020 - librarian.py - WARNING - no description found
+2018-11-13 00:03:13,021 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:03:13,022 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:03:13,023 - librarian.py - INFO - calling imdb for Hey Duggee Series 2 - 19  The River Badge b 08vy 8sn original ts mp 4
+2018-11-13 00:03:20,000 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 00:03:20,002 - avconv_controller.py - DEBUG - determine duration of /home/pi/Hey_Duggee_Series_2_-_24._The_Memory_Badge_b08wn2w6_original.mp4
+2018-11-13 00:03:20,438 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Hey_Duggee_Series_2_-_24._The_Memory_Badge_b08wn2w6_original.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n  Duration: 00:07:00.00, start: -0.018667, bitrate: 667 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 344 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
+2018-11-13 00:03:20,440 - avconv_controller.py - ERROR - duration '/home/pi/Hey_Duggee_Series_2_-_24._The_Memory_Badge_b08wn2w6_original.mp4': cannot use a string pattern on a bytes-like object
+2018-11-13 00:03:20,444 - librarian.py - WARNING - no title found
+2018-11-13 00:03:20,444 - librarian.py - WARNING - no name found
+2018-11-13 00:03:20,445 - librarian.py - WARNING - no description found
+2018-11-13 00:03:20,446 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:03:20,446 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:03:20,448 - librarian.py - INFO - calling imdb for Hey Duggee Series 2 - 24  The Memory Badge b 08wn 2w 6 original mp 4
+2018-11-13 00:03:22,710 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 00:03:22,712 - avconv_controller.py - DEBUG - determine duration of /home/pi/Hey_Duggee_Series_2_-_38._The_Dressing_Up_Badge_b09jgzwr_original.mp4
+2018-11-13 00:03:23,544 - avconv_controller.py - DEBUG - results b"ffprobe version 3.2.10-1~deb9u1+rpt1 Copyright (c) 2007-2018 the FFmpeg developers\n  built with gcc 6.3.0 (Raspbian 6.3.0-18+rpi1) 20170516\n  configuration: --prefix=/usr --extra-version='1~deb9u1+rpt1' --toolchain=hardened --libdir=/usr/lib/arm-linux-gnueabihf --incdir=/usr/include/arm-linux-gnueabihf --enable-gpl --disable-stripping --enable-avresample --enable-avisynth --enable-gnutls --enable-ladspa --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libebur128 --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libmp3lame --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libwebp --enable-libx265 --enable-libxvid --enable-libzmq --enable-libzvbi --enable-omx-rpi --enable-mmal --enable-openal --enable-opengl --enable-sdl2 --enable-libdc1394 --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libopencv --enable-libx264 --enable-shared\n  libavutil      55. 34.101 / 55. 34.101\n  libavcodec     57. 64.101 / 57. 64.101\n  libavformat    57. 56.101 / 57. 56.101\n  libavdevice    57.  1.100 / 57.  1.100\n  libavfilter     6. 65.100 /  6. 65.100\n  libavresample   3.  1.  0 /  3.  1.  0\n  libswscale      4.  2.100 /  4.  2.100\n  libswresample   2.  3.100 /  2.  3.100\n  libpostproc    54.  1.100 / 54.  1.100\nInput #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/pi/Hey_Duggee_Series_2_-_38._The_Dressing_Up_Badge_b09jgzwr_original.mp4':\n  Metadata:\n    major_brand     : isom\n    minor_version   : 512\n    compatible_brands: isomiso2avc1mp41\n    encoder         : Lavf57.56.101\n  Duration: 00:07:00.04, start: -0.018667, bitrate: 604 kb/s\n    Stream #0:0(und): Video: h264 (Main) (avc1 / 0x31637661), yuv420p(tv, bt709), 512x288 [SAR 1:1 DAR 16:9], 281 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc (default)\n    Metadata:\n      handler_name    : VideoHandler\n    Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 317 kb/s (default)\n    Metadata:\n      handler_name    : SoundHandler\n"
+2018-11-13 00:03:23,546 - avconv_controller.py - ERROR - duration '/home/pi/Hey_Duggee_Series_2_-_38._The_Dressing_Up_Badge_b09jgzwr_original.mp4': cannot use a string pattern on a bytes-like object
+2018-11-13 00:03:23,547 - librarian.py - WARNING - no title found
+2018-11-13 00:03:23,548 - librarian.py - WARNING - no name found
+2018-11-13 00:03:23,549 - librarian.py - WARNING - no description found
+2018-11-13 00:03:23,550 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:03:23,550 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:03:23,552 - librarian.py - INFO - calling imdb for Hey Duggee Series 2 - 38  The Dressing Up Badge b 09jgzwr original mp 4
+2018-11-13 00:03:25,822 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 00:03:25,823 - avconv_controller.py - DEBUG - determine duration of /home/pi/Late Night Story Tom Baker Reads Sredni Vashtar Tuesday_MP4 270p_360p.mp4
+2018-11-13 00:05:22,298 - video_player_pi2.py - INFO - hello
+2018-11-13 00:05:23,618 - avconv_controller.py - INFO - importing avconv/ffmpeg controller
+2018-11-13 00:05:25,068 - video_player_pi2.py - DEBUG - loading from config.file.txt
+2018-11-13 00:05:25,070 - librarian.py - INFO - checking tests/m1
+2018-11-13 00:05:25,071 - librarian.py - INFO - checking for mp4 in tests/m1
+2018-11-13 00:05:25,074 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello.mp4
+2018-11-13 00:05:27,385 - avconv_controller.py - ERROR - duration 'tests/m1/hello.mp4': 'NoneType' object has no attribute 'group'
+2018-11-13 00:05:27,433 - librarian.py - WARNING - no title found
+2018-11-13 00:05:27,457 - librarian.py - WARNING - no name found
+2018-11-13 00:05:27,458 - librarian.py - WARNING - no description found
+2018-11-13 00:05:27,460 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:05:27,461 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:05:27,466 - librarian.py - INFO - calling imdb for hello mp 4
+2018-11-13 00:05:35,870 - librarian.py - DEBUG - parsed pages
+2018-11-13 00:05:35,872 - librarian.py - DEBUG - A self-help seminar inspires a sixty-something woman to romantically pursue her younger co-worker. Hello, My Name Is Doris (2015)
+2018-11-13 00:05:37,674 - librarian.py - DEBUG - written title
+2018-11-13 00:05:37,680 - librarian.py - DEBUG - written name
+2018-11-13 00:05:37,682 - librarian.py - DEBUG - written description
+2018-11-13 00:05:37,684 - librarian.py - INFO - checking for avi in tests/m1
+2018-11-13 00:05:37,691 - avconv_controller.py - DEBUG - determine duration of tests/m1/the_taking_of_pelham_one_two_three.avi
+2018-11-13 00:05:39,438 - avconv_controller.py - ERROR - duration 'tests/m1/the_taking_of_pelham_one_two_three.avi': 'NoneType' object has no attribute 'group'
+2018-11-13 00:05:39,489 - librarian.py - WARNING - no title found
+2018-11-13 00:05:39,490 - librarian.py - WARNING - no name found
+2018-11-13 00:05:39,492 - librarian.py - WARNING - no description found
+2018-11-13 00:05:39,493 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:05:39,495 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:05:39,500 - librarian.py - INFO - calling imdb for the taking of pelham one two three avi
+2018-11-13 00:05:46,296 - librarian.py - DEBUG - parsed pages
+2018-11-13 00:05:46,297 - librarian.py - DEBUG - In New York, armed men hijack a subway car and demand a ransom for the passengers. Even if it's paid, how could they get away? The Taking of Pelham One Two Three (1974)
+2018-11-13 00:05:57,293 - librarian.py - DEBUG - written title
+2018-11-13 00:05:57,303 - librarian.py - DEBUG - written name
+2018-11-13 00:05:57,305 - librarian.py - DEBUG - written description
+2018-11-13 00:05:57,308 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello2.avi
+2018-11-13 00:05:58,811 - avconv_controller.py - ERROR - duration 'tests/m1/hello2.avi': 'NoneType' object has no attribute 'group'
+2018-11-13 00:05:58,827 - librarian.py - WARNING - no title found
+2018-11-13 00:05:58,829 - librarian.py - WARNING - no name found
+2018-11-13 00:05:58,831 - librarian.py - WARNING - no description found
+2018-11-13 00:05:58,833 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:05:58,834 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:05:58,837 - librarian.py - INFO - calling imdb for hello 2 avi
+2018-11-13 00:06:00,844 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 00:06:00,845 - librarian.py - INFO - checking /home/pi
+2018-11-13 00:06:00,846 - librarian.py - INFO - checking for mp4 in /home/pi
+2018-11-13 00:06:00,874 - avconv_controller.py - DEBUG - determine duration of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,162 - avconv_controller.py - DEBUG - duration 01:37:54.00, 1.0, 37.0, 54.0
+2018-11-13 00:06:03,207 - librarian.py - WARNING - no title found
+2018-11-13 00:06:03,209 - librarian.py - WARNING - no name found
+2018-11-13 00:06:03,211 - librarian.py - WARNING - no description found
+2018-11-13 00:06:03,213 - librarian.py - INFO - generating thumbnails
+2018-11-13 00:06:03,234 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,312 - avconv_controller.py - DEBUG - thumbnail at 0
+2018-11-13 00:06:03,315 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,334 - avconv_controller.py - DEBUG - thumbnail at 250
+2018-11-13 00:06:03,338 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,358 - avconv_controller.py - DEBUG - thumbnail at 500
+2018-11-13 00:06:03,361 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,383 - avconv_controller.py - DEBUG - thumbnail at 750
+2018-11-13 00:06:03,387 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,410 - avconv_controller.py - DEBUG - thumbnail at 1000
+2018-11-13 00:06:03,414 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,432 - avconv_controller.py - DEBUG - thumbnail at 1250
+2018-11-13 00:06:03,436 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,450 - avconv_controller.py - DEBUG - thumbnail at 1500
+2018-11-13 00:06:03,453 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,467 - avconv_controller.py - DEBUG - thumbnail at 1750
+2018-11-13 00:06:03,469 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,493 - avconv_controller.py - DEBUG - thumbnail at 2000
+2018-11-13 00:06:03,495 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,507 - avconv_controller.py - DEBUG - thumbnail at 2250
+2018-11-13 00:06:03,509 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,522 - avconv_controller.py - DEBUG - thumbnail at 2500
+2018-11-13 00:06:03,524 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,538 - avconv_controller.py - DEBUG - thumbnail at 2750
+2018-11-13 00:06:03,540 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,553 - avconv_controller.py - DEBUG - thumbnail at 3000
+2018-11-13 00:06:03,556 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,576 - avconv_controller.py - DEBUG - thumbnail at 3250
+2018-11-13 00:06:03,585 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,607 - avconv_controller.py - DEBUG - thumbnail at 3500
+2018-11-13 00:06:03,614 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,631 - avconv_controller.py - DEBUG - thumbnail at 3750
+2018-11-13 00:06:03,633 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,650 - avconv_controller.py - DEBUG - thumbnail at 4000
+2018-11-13 00:06:03,664 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,691 - avconv_controller.py - DEBUG - thumbnail at 4250
+2018-11-13 00:06:03,694 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,751 - avconv_controller.py - DEBUG - thumbnail at 4500
+2018-11-13 00:06:03,757 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,820 - avconv_controller.py - DEBUG - thumbnail at 4750
+2018-11-13 00:06:03,822 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,843 - avconv_controller.py - DEBUG - thumbnail at 5000
+2018-11-13 00:06:03,845 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,862 - avconv_controller.py - DEBUG - thumbnail at 5250
+2018-11-13 00:06:03,863 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,880 - avconv_controller.py - DEBUG - thumbnail at 5500
+2018-11-13 00:06:03,883 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 00:06:03,902 - avconv_controller.py - DEBUG - thumbnail at 5750
+2018-11-13 00:06:03,904 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 00:06:04,021 - librarian.py - INFO - calling imdb for Bringing Up Baby( 1938) mp 4
+2018-11-13 01:09:57,215 - video_player_pi2.py - INFO - hello
+2018-11-13 01:09:59,230 - avconv_controller.py - INFO - importing avconv/ffmpeg controller
+2018-11-13 01:10:00,778 - video_player_pi2.py - DEBUG - loading from config.file.txt
+2018-11-13 01:10:00,781 - librarian.py - INFO - checking tests/m1
+2018-11-13 01:10:00,785 - librarian.py - INFO - checking for mp4 in tests/m1
+2018-11-13 01:10:00,794 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello.mp4
+2018-11-13 01:10:03,336 - avconv_controller.py - ERROR - duration 'tests/m1/hello.mp4': 'NoneType' object has no attribute 'group'
+2018-11-13 01:10:03,539 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
+2018-11-13 01:10:03,542 - librarian.py - DEBUG - name read, Hello, My Name Is Doris (2015) for tests/m1/hello.mp4
+2018-11-13 01:10:03,545 - librarian.py - DEBUG - description read, A self-help seminar inspires a sixty-something woman to romantically pursue her younger co-worker. for tests/m1/hello.mp4
+2018-11-13 01:10:03,549 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:10:03,550 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:10:03,552 - librarian.py - INFO - checking for avi in tests/m1
+2018-11-13 01:10:03,555 - avconv_controller.py - DEBUG - determine duration of tests/m1/the_taking_of_pelham_one_two_three.avi
+2018-11-13 01:10:05,319 - avconv_controller.py - ERROR - duration 'tests/m1/the_taking_of_pelham_one_two_three.avi': 'NoneType' object has no attribute 'group'
+2018-11-13 01:10:05,392 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
+2018-11-13 01:10:05,395 - librarian.py - DEBUG - name read, The Taking of Pelham One Two Three (1974) for tests/m1/the_taking_of_pelham_one_two_three.avi
+2018-11-13 01:10:05,398 - librarian.py - DEBUG - description read, In New York, armed men hijack a subway car and demand a ransom for the passengers. Even if it's paid, how could they get away? for tests/m1/the_taking_of_pelham_one_two_three.avi
+2018-11-13 01:10:05,400 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:10:05,401 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:10:05,403 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello2.avi
+2018-11-13 01:10:07,015 - avconv_controller.py - ERROR - duration 'tests/m1/hello2.avi': 'NoneType' object has no attribute 'group'
+2018-11-13 01:10:07,078 - librarian.py - WARNING - no title found
+2018-11-13 01:10:07,080 - librarian.py - WARNING - no name found
+2018-11-13 01:10:07,082 - librarian.py - WARNING - no description found
+2018-11-13 01:10:07,083 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:10:07,085 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:10:07,117 - librarian.py - INFO - calling imdb for hello 2 avi
+2018-11-13 01:10:10,173 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 01:10:10,177 - librarian.py - INFO - checking /home/pi
+2018-11-13 01:10:10,178 - librarian.py - INFO - checking for mp4 in /home/pi
+2018-11-13 01:10:10,212 - avconv_controller.py - DEBUG - determine duration of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,374 - avconv_controller.py - DEBUG - duration 01:37:54.00, 1.0, 37.0, 54.0
+2018-11-13 01:10:13,428 - librarian.py - WARNING - no title found
+2018-11-13 01:10:13,429 - librarian.py - WARNING - no name found
+2018-11-13 01:10:13,431 - librarian.py - WARNING - no description found
+2018-11-13 01:10:13,432 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:10:13,443 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,553 - avconv_controller.py - DEBUG - thumbnail at 0
+2018-11-13 01:10:13,556 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,573 - avconv_controller.py - DEBUG - thumbnail at 250
+2018-11-13 01:10:13,576 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,594 - avconv_controller.py - DEBUG - thumbnail at 500
+2018-11-13 01:10:13,597 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,616 - avconv_controller.py - DEBUG - thumbnail at 750
+2018-11-13 01:10:13,619 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,637 - avconv_controller.py - DEBUG - thumbnail at 1000
+2018-11-13 01:10:13,640 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,659 - avconv_controller.py - DEBUG - thumbnail at 1250
+2018-11-13 01:10:13,662 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,675 - avconv_controller.py - DEBUG - thumbnail at 1500
+2018-11-13 01:10:13,678 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,694 - avconv_controller.py - DEBUG - thumbnail at 1750
+2018-11-13 01:10:13,697 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,711 - avconv_controller.py - DEBUG - thumbnail at 2000
+2018-11-13 01:10:13,714 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,725 - avconv_controller.py - DEBUG - thumbnail at 2250
+2018-11-13 01:10:13,727 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,739 - avconv_controller.py - DEBUG - thumbnail at 2500
+2018-11-13 01:10:13,742 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,755 - avconv_controller.py - DEBUG - thumbnail at 2750
+2018-11-13 01:10:13,757 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,771 - avconv_controller.py - DEBUG - thumbnail at 3000
+2018-11-13 01:10:13,776 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,789 - avconv_controller.py - DEBUG - thumbnail at 3250
+2018-11-13 01:10:13,791 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,803 - avconv_controller.py - DEBUG - thumbnail at 3500
+2018-11-13 01:10:13,806 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,819 - avconv_controller.py - DEBUG - thumbnail at 3750
+2018-11-13 01:10:13,821 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,837 - avconv_controller.py - DEBUG - thumbnail at 4000
+2018-11-13 01:10:13,839 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,853 - avconv_controller.py - DEBUG - thumbnail at 4250
+2018-11-13 01:10:13,856 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,870 - avconv_controller.py - DEBUG - thumbnail at 4500
+2018-11-13 01:10:13,873 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,891 - avconv_controller.py - DEBUG - thumbnail at 4750
+2018-11-13 01:10:13,893 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,908 - avconv_controller.py - DEBUG - thumbnail at 5000
+2018-11-13 01:10:13,912 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,930 - avconv_controller.py - DEBUG - thumbnail at 5250
+2018-11-13 01:10:13,932 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,959 - avconv_controller.py - DEBUG - thumbnail at 5500
+2018-11-13 01:10:13,963 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:10:13,986 - avconv_controller.py - DEBUG - thumbnail at 5750
+2018-11-13 01:10:13,992 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:10:13,993 - librarian.py - INFO - calling imdb for Bringing Up Baby( 1938) mp 4
+2018-11-13 01:10:24,339 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 01:10:25,951 - avconv_controller.py - DEBUG - determine duration of /home/pi/Timeshift_Series_13_-_5._The_Ladybird_Books_Story_The_Bugs_That_Got_Britain_Reading_b03mp53s_original.mp4
+2018-11-13 01:14:26,647 - video_player_pi2.py - INFO - hello
+2018-11-13 01:15:34,399 - video_player_pi2.py - INFO - hello
+2018-11-13 01:16:12,281 - video_player_pi2.py - INFO - hello
+2018-11-13 01:16:13,065 - avconv_controller.py - INFO - importing avconv/ffmpeg controller
+2018-11-13 01:16:14,468 - video_player_pi2.py - DEBUG - loading from config.file.txt
+2018-11-13 01:16:14,470 - librarian.py - INFO - checking tests/m1
+2018-11-13 01:16:14,471 - librarian.py - INFO - checking for mp4 in tests/m1
+2018-11-13 01:16:14,475 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello.mp4
+2018-11-13 01:16:16,815 - avconv_controller.py - ERROR - duration 'tests/m1/hello.mp4': 'NoneType' object has no attribute 'group'
+2018-11-13 01:16:16,878 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
+2018-11-13 01:16:16,881 - librarian.py - DEBUG - name read, Hello, My Name Is Doris (2015) for tests/m1/hello.mp4
+2018-11-13 01:16:16,884 - librarian.py - DEBUG - description read, A self-help seminar inspires a sixty-something woman to romantically pursue her younger co-worker. for tests/m1/hello.mp4
+2018-11-13 01:16:16,887 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:16:16,889 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:16:16,891 - librarian.py - INFO - checking for avi in tests/m1
+2018-11-13 01:16:16,899 - avconv_controller.py - DEBUG - determine duration of tests/m1/the_taking_of_pelham_one_two_three.avi
+2018-11-13 01:16:18,074 - avconv_controller.py - ERROR - duration 'tests/m1/the_taking_of_pelham_one_two_three.avi': 'NoneType' object has no attribute 'group'
+2018-11-13 01:16:18,097 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
+2018-11-13 01:16:18,101 - librarian.py - DEBUG - name read, The Taking of Pelham One Two Three (1974) for tests/m1/the_taking_of_pelham_one_two_three.avi
+2018-11-13 01:16:18,104 - librarian.py - DEBUG - description read, In New York, armed men hijack a subway car and demand a ransom for the passengers. Even if it's paid, how could they get away? for tests/m1/the_taking_of_pelham_one_two_three.avi
+2018-11-13 01:16:18,106 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:16:18,107 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:16:18,109 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello2.avi
+2018-11-13 01:16:18,655 - avconv_controller.py - ERROR - duration 'tests/m1/hello2.avi': 'NoneType' object has no attribute 'group'
+2018-11-13 01:16:18,674 - librarian.py - WARNING - no title found
+2018-11-13 01:16:18,675 - librarian.py - WARNING - no name found
+2018-11-13 01:16:18,676 - librarian.py - WARNING - no description found
+2018-11-13 01:16:18,677 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:16:18,677 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:16:18,705 - librarian.py - INFO - calling imdb for hello 2 avi
+2018-11-13 01:16:26,242 - librarian.py - ERROR - imdb image/title/descr results list index out of range
+2018-11-13 01:16:26,243 - librarian.py - INFO - checking /home/pi
+2018-11-13 01:16:26,244 - librarian.py - INFO - checking for mp4 in /home/pi
+2018-11-13 01:16:26,277 - avconv_controller.py - DEBUG - determine duration of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,611 - avconv_controller.py - DEBUG - duration 01:37:54.00, 1.0, 37.0, 54.0
+2018-11-13 01:16:28,664 - librarian.py - WARNING - no title found
+2018-11-13 01:16:28,666 - librarian.py - WARNING - no name found
+2018-11-13 01:16:28,668 - librarian.py - WARNING - no description found
+2018-11-13 01:16:28,669 - librarian.py - INFO - generating thumbnails
+2018-11-13 01:16:28,680 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,681 - avconv_controller.py - DEBUG - command avconv -y -ss 0 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t00000.png
+2018-11-13 01:16:28,764 - avconv_controller.py - DEBUG - thumbnail at 0
+2018-11-13 01:16:28,766 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,768 - avconv_controller.py - DEBUG - command avconv -y -ss 250 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t00250.png
+2018-11-13 01:16:28,784 - avconv_controller.py - DEBUG - thumbnail at 250
+2018-11-13 01:16:28,787 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,789 - avconv_controller.py - DEBUG - command avconv -y -ss 500 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t00500.png
+2018-11-13 01:16:28,806 - avconv_controller.py - DEBUG - thumbnail at 500
+2018-11-13 01:16:28,809 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,811 - avconv_controller.py - DEBUG - command avconv -y -ss 750 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t00750.png
+2018-11-13 01:16:28,827 - avconv_controller.py - DEBUG - thumbnail at 750
+2018-11-13 01:16:28,830 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,832 - avconv_controller.py - DEBUG - command avconv -y -ss 1000 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t01000.png
+2018-11-13 01:16:28,854 - avconv_controller.py - DEBUG - thumbnail at 1000
+2018-11-13 01:16:28,860 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,862 - avconv_controller.py - DEBUG - command avconv -y -ss 1250 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t01250.png
+2018-11-13 01:16:28,873 - avconv_controller.py - DEBUG - thumbnail at 1250
+2018-11-13 01:16:28,875 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,878 - avconv_controller.py - DEBUG - command avconv -y -ss 1500 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t01500.png
+2018-11-13 01:16:28,892 - avconv_controller.py - DEBUG - thumbnail at 1500
+2018-11-13 01:16:28,894 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,896 - avconv_controller.py - DEBUG - command avconv -y -ss 1750 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t01750.png
+2018-11-13 01:16:28,910 - avconv_controller.py - DEBUG - thumbnail at 1750
+2018-11-13 01:16:28,913 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,915 - avconv_controller.py - DEBUG - command avconv -y -ss 2000 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t02000.png
+2018-11-13 01:16:28,928 - avconv_controller.py - DEBUG - thumbnail at 2000
+2018-11-13 01:16:28,930 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,932 - avconv_controller.py - DEBUG - command avconv -y -ss 2250 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t02250.png
+2018-11-13 01:16:28,945 - avconv_controller.py - DEBUG - thumbnail at 2250
+2018-11-13 01:16:28,947 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,949 - avconv_controller.py - DEBUG - command avconv -y -ss 2500 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t02500.png
+2018-11-13 01:16:28,962 - avconv_controller.py - DEBUG - thumbnail at 2500
+2018-11-13 01:16:28,965 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,967 - avconv_controller.py - DEBUG - command avconv -y -ss 2750 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t02750.png
+2018-11-13 01:16:28,983 - avconv_controller.py - DEBUG - thumbnail at 2750
+2018-11-13 01:16:28,986 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:28,988 - avconv_controller.py - DEBUG - command avconv -y -ss 3000 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t03000.png
+2018-11-13 01:16:29,007 - avconv_controller.py - DEBUG - thumbnail at 3000
+2018-11-13 01:16:29,009 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,011 - avconv_controller.py - DEBUG - command avconv -y -ss 3250 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t03250.png
+2018-11-13 01:16:29,025 - avconv_controller.py - DEBUG - thumbnail at 3250
+2018-11-13 01:16:29,027 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,029 - avconv_controller.py - DEBUG - command avconv -y -ss 3500 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t03500.png
+2018-11-13 01:16:29,043 - avconv_controller.py - DEBUG - thumbnail at 3500
+2018-11-13 01:16:29,045 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,047 - avconv_controller.py - DEBUG - command avconv -y -ss 3750 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t03750.png
+2018-11-13 01:16:29,067 - avconv_controller.py - DEBUG - thumbnail at 3750
+2018-11-13 01:16:29,074 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,078 - avconv_controller.py - DEBUG - command avconv -y -ss 4000 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t04000.png
+2018-11-13 01:16:29,109 - avconv_controller.py - DEBUG - thumbnail at 4000
+2018-11-13 01:16:29,112 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,114 - avconv_controller.py - DEBUG - command avconv -y -ss 4250 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t04250.png
+2018-11-13 01:16:29,131 - avconv_controller.py - DEBUG - thumbnail at 4250
+2018-11-13 01:16:29,134 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,137 - avconv_controller.py - DEBUG - command avconv -y -ss 4500 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t04500.png
+2018-11-13 01:16:29,170 - avconv_controller.py - DEBUG - thumbnail at 4500
+2018-11-13 01:16:29,173 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,176 - avconv_controller.py - DEBUG - command avconv -y -ss 4750 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t04750.png
+2018-11-13 01:16:29,190 - avconv_controller.py - DEBUG - thumbnail at 4750
+2018-11-13 01:16:29,191 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,192 - avconv_controller.py - DEBUG - command avconv -y -ss 5000 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t05000.png
+2018-11-13 01:16:29,204 - avconv_controller.py - DEBUG - thumbnail at 5000
+2018-11-13 01:16:29,207 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,209 - avconv_controller.py - DEBUG - command avconv -y -ss 5250 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t05250.png
+2018-11-13 01:16:29,225 - avconv_controller.py - DEBUG - thumbnail at 5250
+2018-11-13 01:16:29,228 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,229 - avconv_controller.py - DEBUG - command avconv -y -ss 5500 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t05500.png
+2018-11-13 01:16:29,242 - avconv_controller.py - DEBUG - thumbnail at 5500
+2018-11-13 01:16:29,244 - avconv_controller.py - DEBUG - generate thumbnails of /home/pi/BringingUpBaby(1938).mp4
+2018-11-13 01:16:29,248 - avconv_controller.py - DEBUG - command avconv -y -ss 5750 -i /home/pi/BringingUpBaby(1938).mp4 -vcodec png -frames 1 tests/thumbnails/_home_pi_BringingUpBaby(1938).mp4/t05750.png
+2018-11-13 01:16:29,273 - avconv_controller.py - DEBUG - thumbnail at 5750
+2018-11-13 01:16:29,280 - librarian.py - INFO - ran thumbnail conversion
+2018-11-13 01:16:29,525 - librarian.py - INFO - calling imdb for Bringing Up Baby( 1938) mp 4
+2018-11-13 01:22:31,957 - video_player_pi2.py - INFO - hello
+2018-11-13 01:22:33,238 - avconv_controller.py - INFO - importing avconv/ffmpeg controller
+2018-11-13 01:22:34,570 - video_player_pi2.py - DEBUG - loading from config.file.txt
+2018-11-13 01:22:34,572 - librarian.py - INFO - checking tests/m1
+2018-11-13 01:22:34,573 - librarian.py - INFO - checking for mp4 in tests/m1
+2018-11-13 01:22:34,576 - avconv_controller.py - DEBUG - determine duration of tests/m1/hello.mp4
+2018-11-13 01:22:37,072 - avconv_controller.py - ERROR - duration 'tests/m1/hello.mp4': 'NoneType' object has no attribute 'group'
+2018-11-13 01:22:37,228 - librarian.py - INFO - title card <Surface(182x268x24 SW)>
+2018-11-13 01:22:37,231 - librarian.py - DEBUG - name read, Hello, My Name Is Doris (2015) for tests/m1/hello.mp4

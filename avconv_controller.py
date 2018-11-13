@@ -40,13 +40,16 @@ def duration(file):
 def thumbnail(position,file,thumbnail):
     try:
         logger.debug('generate thumbnails of {0}'.format(file))
+        cmd = '{exe_avconv} -y -ss {position} -i'.format(exe_avconv=exe_avconv, position=position).split()+ \
+            ['{file}'.format(file=file)]+ \
+            '-vcodec png -frames 1'.split()+ \
+            ['{thumbnail}'.format(thumbnail=thumbnail)]
+        logger.debug('command {0}'.format(' '.join(cmd)))
         avconv_process = Popen(
-            '{exe_avconv} -y -ss {position} -i'.format(exe_avconv=exe_avconv, position=position).split()+
-            ['{file}'.format(file=file)]+
-            '-vcodec png -frames 1'.split()+
-            ['{thumbnail}'.format(thumbnail=thumbnail)],
-                stdout=PIPE, stdin=PIPE, stderr=STDOUT
+             cmd, stdout=PIPE, stdin=PIPE, stderr=STDOUT
         )
+        out,err = avconv_process.communicate()
+        logger.debug(err)
         logger.debug('thumbnail at {0}'.format(position))
         return thumbnail
     except Exception as e:
