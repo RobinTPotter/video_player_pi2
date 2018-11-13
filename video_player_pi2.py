@@ -338,4 +338,3 @@ if __name__ == "__main__":
     player = main_screen(config['controls'], config['controls_set'])
     player.joystick_setup()
     player.start(clock)
-    

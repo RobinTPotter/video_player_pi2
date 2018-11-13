@@ -1,3 +1,6 @@
+
+
+
 from config import LOGNAME, exe_avprobe, exe_avconv
 import logging
 logger = logging.getLogger(LOGNAME)
@@ -5,7 +8,7 @@ logger.info('importing avconv/ffmpeg controller')
 
 
 from subprocess import Popen, PIPE, STDOUT
-import json
+import re
 
 avconv_process = None
 
@@ -16,24 +19,35 @@ avconv_process = None
 
 def duration(file):
     try:
+        logger.debug('determine duration of {0}'.format(file))
         avprobe_process = Popen(
-            '{exe_avprobe} -v quiet -of json "{file}"'
-                .format(exe_avprobe=exe_avprobe,file=file).split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT
+            ['{exe_avprobe}'.format(exe_avprobe=exe_avprobe),'{file}'.format(file=file)],
+               stdout=PIPE, stdin=PIPE, stderr=STDOUT
+               # 2>&1 | grep -Eo "Duration: [0-9:\.]*" | sed "s/Duration: //"'
         )
-        result = json.loads(avprobe_process.stdout)
-        print (result)
-        return result['duration']
+        result,err = avprobe_process.communicate()
+        #logger.debug('results {0}'.format(result))
+        result = str(result)
+        duration = re.search('Duration: [0-9]+:[0-9]+:[0-9]+\.[0-9]+',result).group(0)
+        duration = duration.replace('Duration: ','')
+        hh,mm,ss = [float(d) for d in duration.split(':')]
+        logger.debug('duration {0}, {1}, {2}, {3}'.format(duration, hh, mm, ss))
+        return int(hh*60*60+mm*60+ss)
     except Exception as e:
         logger.error('duration \'{0}\': {1}'.format(file,e))
         return 0
         
 def thumbnail(position,file,thumbnail):
     try:
+        logger.debug('generate thumbnails of {0}'.format(file))
         avconv_process = Popen(
-            '{exe_avconv} -y -ss {position} -i "{file}" -vcodec png -frames 1 "{thumbnail}"'
-                .format(exe_avconv=exe_avconv, position=position,file=file,thumbnail=thumbnail)
-                .split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT
+            '{exe_avconv} -y -ss {position} -i'.format(exe_avconv=exe_avconv, position=position).split()+
+            ['{file}'.format(file=file)]+
+            '-vcodec png -frames 1'.split()+
+            ['{thumbnail}'.format(thumbnail=thumbnail)],
+                stdout=PIPE, stdin=PIPE, stderr=STDOUT
         )
+        logger.debug('thumbnail at {0}'.format(position))
         return thumbnail
     except Exception as e:
         logger.error('thumbnail \'{0}\': {1}'.format(file,e))
