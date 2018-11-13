@@ -74,7 +74,7 @@ default = {'size': [720,576], \
 
 def save_config(config):
     with open(config_file,'w') as fp:
-        fp.write(json.dumps(config))
+        fp.write(json.dumps(config, indent=4))
         logger.debug('saving')
         logger.debug(config)
 
