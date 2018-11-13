@@ -12,11 +12,6 @@ import re
 
 avconv_process = None
 
-#for s in $(seq 1 250 20000)
-#avconv -y -ss $s -i "$1" -vcodec png -frames 1 "$thumbnails/$file/$(printf "%06d" $s).png" > /dev/null 2>&1
-
-
-
 def duration(file):
     try:
         logger.debug('determine duration of {0}'.format(file))
@@ -39,7 +34,6 @@ def duration(file):
         
 def thumbnail(position,file,thumbnail):
     try:
-        logger.debug('generate thumbnails of {0}'.format(file))
         cmd = '{exe_avconv} -y -ss {position} -i'.format(exe_avconv=exe_avconv, position=position).split()+ \
             ['{file}'.format(file=file)]+ \
             '-vcodec png -frames 1'.split()+ \
@@ -58,6 +52,7 @@ def thumbnail(position,file,thumbnail):
 
 
 def thumbnails(file, thumbnail_dir, start, end, interval):
+    logger.debug('generate thumbnails of {0}'.format(file))
     check_for_error = False
     results = []
     for pos in range(start,end,interval):

@@ -81,7 +81,9 @@ class file:
             self.thumbnails = []         
             countload = 0 
             for r in [f for f in find_files(self.thumbnail_dir,'*.png')]:
-                self.thumbnails.append(pg.image.load(r))
+                im = pg.image.load(r)
+                im = pg.transform.scale(im, (240, 160))
+                self.thumbnails.append(im)
                 countload += 1
                 logger.debug('loaded {0}'.format(r))
                 
@@ -164,9 +166,6 @@ class file:
 
 class librarian:
 
-    files = []
-
-
     def __init__(self, **kwargs):
 
         self.media_dirs = kwargs.get('media_dirs', ['.'])
@@ -177,13 +176,15 @@ class librarian:
 
     def initialize(self):
 
-        files = []
+        self.files = []
         for dir in self.media_dirs:
             logger.info ('checking {0}'.format(dir))
             for ext in self.extensions:
                 logger.info ('checking for {1} in {0}'.format(dir, ext))
-                files = files + [file(f,self.thumbnails) for f in find_files(dir, '*.' + ext)]
+                self.files = self.files + [file(f,self.thumbnails) for f in find_files(dir, '*.' + ext)]
 
-        logger.debug(str(files))
+        logger.debug(str(self.files))
 
-
+    def get_files(self):
+        logger.debug('called for the library {0} titles'.format(len(self.files)))
+        return self.files
