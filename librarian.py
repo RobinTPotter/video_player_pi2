@@ -38,13 +38,27 @@ class file:
         self.filename = filename
         self.thumbnail_dir = thumbnail_dir+'/'+filename.replace('/','_')
         if not os.path.exists(self.thumbnail_dir): os.makedirs(self.thumbnail_dir)
-        self.length = avconv_controller.duration(filename)
         self.thumbnail()
 
     def __repr__(self):
         return '{0} ({1}): {2} min;{3} thumbs'.format(self.name,self.filename,int(self.length/60),len(self.thumbnails))
 
+
+
+
+
     def thumbnail(self):
+
+        # load the name.txt if it exists
+        if 'length.txt' in os.listdir(self.thumbnail_dir):
+            with open(self.thumbnail_dir+'/length.txt','r') as fl:
+                self.length = fl.read()                
+            logger.debug('dur read, {0} for {1}'.format(self.length,self.filename))
+        else:
+            logger.warn('no duration found')
+	
+
+
     
         # load the title.jpg if it exists
         if 'title.jpg' in os.listdir(self.thumbnail_dir):
@@ -61,7 +75,7 @@ class file:
             logger.debug('name read, {0} for {1}'.format(self.name,self.filename))
         else:
             logger.warn('no name found')
-            
+	            
         # load the description.txt if it exists
         if 'description.txt' in os.listdir(self.thumbnail_dir):
             with open(self.thumbnail_dir+'/description.txt','r') as fl:
@@ -94,11 +108,18 @@ class file:
             or self.name is None \
             or self.description is None:
             title = self.filename = ntpath.basename(self.filename).replace('_',' ').replace('.',' ')
-            self.call_imdb(title)
+            #self.call_imdb(title)
 
+        if self.length is None:
+            self.length = avconv_controller.duration(filename)
+            # write out file
+            with open(self.thumbnail_dir + '/length.txt','w') as output_desc_file:
+                output_desc_file.write('{0}'.format(self.length))
+                
+            logger.debug('written length')
 
     def call_imdb(self, title):
-    
+
         # incase of StupidCapsOnNames        
         title = re.sub('([a-z])([A-Z])','\\1 \\2',title)
         title = re.sub('([^\s0-9])([0-9])','\\1 \\2',title)
@@ -153,6 +174,7 @@ class file:
                 
             logger.debug('written name')    
                 
+
             # write out file
             with open(self.thumbnail_dir + '/description.txt','w') as output_desc_file:
                 output_desc_file.write('{0}'.format(self.description))

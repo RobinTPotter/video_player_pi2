@@ -1,1 +1,51 @@
-{"dir": ["tests/m1", "/home/pi"], "FPS": 25, "controls": [{"key": 273, "name": "up", "callback": null, "button": null}, {"key": 274, "name": "down", "callback": null, "button": null}, {"key": 276, "name": "left", "callback": null, "button": null}, {"key": 275, "name": "right", "callback": null, "button": null}, {"key": 13, "name": "fire", "callback": null, "button": null}], "controls_set": true, "ext": ["mp4", "avi"], "VISIBLE_MOUSE": false, "thumbnails": "tests/thumbnails", "size": [720, 576], "MESSAGE_LENGTH": 255}
+{
+    "thumbnails": "tests/thumbnails",
+    "ext": [
+        "mp4",
+        "avi"
+    ],
+    "controls": [
+        {
+            "name": "up",
+            "callback": null,
+            "key": 273,
+            "button": null
+        },
+        {
+            "name": "down",
+            "callback": null,
+            "key": 274,
+            "button": null
+        },
+        {
+            "name": "left",
+            "callback": null,
+            "key": 276,
+            "button": null
+        },
+        {
+            "name": "right",
+            "callback": null,
+            "key": 275,
+            "button": null
+        },
+        {
+            "name": "fire",
+            "callback": null,
+            "key": 13,
+            "button": null
+        }
+    ],
+    "dir": [
+        "tests/m1",
+        "/home/pi"
+    ],
+    "size": [
+        720,
+        576
+    ],
+    "FPS": 25,
+    "controls_set": true,
+    "MESSAGE_LENGTH": 255,
+    "VISIBLE_MOUSE": false
+}
