@@ -21,7 +21,7 @@ logger.info('So should this')
 
 omxplayer_process = None
 
-def send_command(command, callback):
+def send_command(command, callback=None):
     '''
     send command to the process, command being literally the key pressed
     '''
@@ -41,15 +41,15 @@ def send_command(command, callback):
                 Popen(('kill -9 '+processes).split(' '), stdout=PIPE, stdin=PIPE, stderr=STDOUT).communiate()
 
             ## 
-            if command=='q' or command=='kill': callback()
+            if callback is not None: callback()
             
         except Exception as e:
             print('communicate exception in command {0}\n{1}'.format(str(command),e))
     
 
-def play(thing,pos):
-    file = [f['directory']+'/'+f['file'] for f in files if f['number']==thing][0]
+def play(file,pos):
     global omxplayer_process
-    omxplayer_process = Popen(['omxplayer', '-b',file,'--pos',pos], stdout=PIPE, stdin=PIPE, stderr=STDOUT)    
-    print(omxplayer_process)
+    logger.info('attempt to play {0} from {1}'.format(file,pos))
+    omxplayer_process = Popen(['omxplayer', '-b',str(file),'--pos',str(pos)], stdout=PIPE, stdin=PIPE, stderr=STDOUT)    
+    print('got process {0}'.format(omxplayer_process))
 

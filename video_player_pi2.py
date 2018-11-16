@@ -119,6 +119,7 @@ GAME_MODE['CURRENT_MODE'] = GAME_MODE['GAME_MODES'][0]
 
 logger.debug(GAME_MODE)
 
+import omxplayer_controller
 
 ##https://learn.adafruit.com/pi-video-output-using-pygame/pointing-pygame-to-the-framebuffer
 ##stolen from here with grateful thanks
@@ -133,7 +134,7 @@ class main_screen :
     used_keys = []
 
     control_index = 0
-    thumb_index = -1
+    thumb_index = 0
     film_index = -1
     last_index = -1
 
@@ -199,8 +200,9 @@ class main_screen :
         logger.debug('generating panel for {0}'.format(file))
 
         name = file.name
-        if name is None: name = file.filename
-
+        if name is None:
+            name = file.filename                
+         
         #title_font
         #words_font
         #font.render(message, True, (0, 0, 0),(255,255,255))
@@ -253,7 +255,6 @@ class main_screen :
         logger.debug('returning panel')
         return panel
 
-
     ##didn't steal this. attempt to read ast joystick from a config file
     def joystick_setup(self):
         try:
@@ -305,8 +306,6 @@ class main_screen :
                         logger.info('quit detected')
                         done=True # Flag that we are done so we exit this loop
                         logger.info('done set True')
-
-
 
                     # Possible joystick actions: JOYAXISMOTION JOYBALLMOTION JOYBUTTONDOWN JOYBUTTONUP JOYHATMOTION
                     if event.type == pg.JOYBUTTONDOWN or ( event.type == pg.KEYDOWN ):
@@ -387,14 +386,19 @@ class main_screen :
                             if c[0]['name'] == 'up':
                                 self.output('left')
                                 self.film_index -= 1
-                                self.thumb_index = -1 
+                                self.thumb_index = 0 
                                 if self.film_index<0: self.film_index = len(lib_files)-1
                             if c[0]['name'] == 'down':
                                 self.film_index += 1
-                                self.thumb_index = -1 
+                                self.thumb_index = 0 
                                 if self.film_index>=len(lib_files): self.film_index = 0
 
-                            if c[0]['name'] == 'fire': self.output('fire')
+                            if c[0]['name'] == 'fire':
+                                self.output('fire')
+                                omxplayer_controller.play(lib_files[self.film_index].filename, lib_files[self.film_index].thumbnails_positions[self.thumb_index])
+                                logger.debug('back in the room')
+                                GAME_MODE['CURRENT_MODE'] = PLAYING
+                                
 
                     #logger.debug('file_index {0}, last_index {1}'.format(self.film_index,self.last_index))
                     
@@ -417,6 +421,20 @@ class main_screen :
 
                 elif GAME_MODE['CURRENT_MODE'] is PLAYING:
                     # update logic for this other mode
+                    if key_number is not None:
+                        c = [c for c in self.controls if key_number == c['key']]
+                        #print ('pressed', key_number, c, self.controls)
+                        if len(c)>0:
+                            logger.debug ((key_number, c[0]))
+                            
+                            if c[0]['name'] == 'left':
+                                omxplayer_controller.send_command('left')
+                                
+                            if c[0]['name'] == 'right':
+                                omxplayer_controller.send_command('right')
+                                
+                            if c[0]['name'] == 'fire':
+                                omxplayer_controller.send_command('space')
                     pass
 
                 if self.textsurface_counter > 0:
