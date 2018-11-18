@@ -1,4 +1,4 @@
-from config import LOGNAME, THUMBNAIL_INTERVAL, SSL_VERIFY
+from config import LOGNAME, THUMBNAIL_INTERVAL, SSL_VERIFY, NOIMDB
 import logging
 logger = logging.getLogger(LOGNAME)
 
@@ -29,7 +29,7 @@ class file:
     thumbnail_dir = None
     name = None
     description = None
-    length = 0
+    length = None
     last_pos = 0
     title_card = None
     thumbnails = []
@@ -39,21 +39,23 @@ class file:
         self.filename = filename
         self.thumbnail_dir = thumbnail_dir+'/'+filename.replace('/','_')
         if not os.path.exists(self.thumbnail_dir): os.makedirs(self.thumbnail_dir)
-        self.thumbnail()
+        self.info()
+        #self.thumbnails()
 
     def __repr__(self):
-        return '{0} ({1}): {2} min;{3} thumbs'.format(self.name,self.filename,int(self.length/60),len(self.thumbnails))
+        if self.length is not None: return '{0} ({1}): {2} min;{3} thumbs'.format(self.name,self.filename,int(self.length/60),len(self.thumbnails))
+        else: return '{0} ({1}): {2} min;{3} thumbs'.format(self.name,self.filename,None,len(self.thumbnails))
 
 
 
 
 
-    def thumbnail(self, check_imdb=True):
+    def info(self, check_imdb=True):
 
         # load the name.txt if it exists
         if 'length.txt' in os.listdir(self.thumbnail_dir):
             with open(self.thumbnail_dir+'/length.txt','r') as fl:
-                self.length = fl.read()
+                self.length =int( fl.read() )
             logger.debug('dur read, {0} for {1}'.format(self.length,self.filename))
         else:
             logger.warn('no duration found')
@@ -82,18 +84,38 @@ class file:
         else:
             logger.warn('no description found')
 
+
+        # check if the imdb elements are missing and attemt to get
+        if self.title_card is None \
+            or self.name is None \
+            or self.description is None:
+            title =  ntpath.basename(self.filename).replace('_',' ').replace('.',' ')
+            if NOIMDB==False and check_imdb==True: self.call_imdb(title)
+
+        if self.length is None:
+            self.length = avconv_controller.duration(self.filename)
+            # write out file
+            with open(self.thumbnail_dir + '/length.txt','w') as output_desc_file:
+                output_desc_file.write('{0}'.format(self.length))
+
+      
+
+    def thumbnail(self):
         # check for thumbnails
-        if len([f for f in find_files(self.thumbnail_dir,'*.png')])==0:
+
+        thumb = sorted([ f for f in find_files(self.thumbnail_dir,'*.png')])
+
+        if len(thumb)==0:
             logger.info('generating thumbnails')
             results = avconv_controller.thumbnails(self.filename, self.thumbnail_dir, 0, self.length, THUMBNAIL_INTERVAL)
             logger.info('ran thumbnail conversion')
 
-        if len([f for f in find_files(self.thumbnail_dir,'*.png')])>0:
+        if len(thumb)>0:
             logger.info('found thumbnail images')
             self.thumbnails = []
             self.thumbnails_positions = []
             countload = 0
-            for r in [f for f in find_files(self.thumbnail_dir,'*.png')]:
+            for r in thumb:
                 im = pg.image.load(r)
                 im = pg.transform.scale(im, (240, 160))
                 self.thumbnails.append(im)
@@ -103,19 +125,6 @@ class file:
                 logger.debug('loaded {0}'.format(r))
 
             logger.info('loaded {0} thumbnails for {1}'.format(countload, self.filename))
-
-        # check if the imdb elements are missing and attemt to get
-        if self.title_card is None \
-            or self.name is None \
-            or self.description is None:
-            title = self.filename = ntpath.basename(self.filename).replace('_',' ').replace('.',' ')
-            if check_imdb==True: self.call_imdb(title)
-
-        if self.length is None:
-            self.length = avconv_controller.duration(filename)
-            # write out file
-            with open(self.thumbnail_dir + '/length.txt','w') as output_desc_file:
-                output_desc_file.write('{0}'.format(self.length))
 
             logger.debug('written length')
 
@@ -183,7 +192,7 @@ class file:
             logger.debug('written description')
             
             # redo the thumbnail to add image
-            self.thumbnail(check_imdb=False)
+            self.info(check_imdb=False)
             
         except Exception as e:
             logger.error('imdb image/title/descr results {0} on {1}'.format(e, self))
@@ -207,7 +216,7 @@ class librarian:
             logger.info ('checking {0}'.format(dir))
             for ext in self.extensions:
                 logger.info ('checking for {1} in {0}'.format(dir, ext))
-                self.files = self.files + [file(f,self.thumbnails) for f in find_files(dir, '*.' + ext)]
+                self.files = self.files + [file(f,self.thumbnails) for f in sorted(find_files(dir, '*.' + ext))]
 
         logger.debug(str(self.files))
 

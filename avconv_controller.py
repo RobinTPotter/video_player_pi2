@@ -21,7 +21,8 @@ def duration(file):
                # 2>&1 | grep -Eo "Duration: [0-9:\.]*" | sed "s/Duration: //"'
         )
         result,err = avprobe_process.communicate()
-        #logger.debug('results {0}'.format(result))
+        logger.debug('results {0}'.format(result))
+        logger.debug('error {0}'.format(err))
         result = str(result)
         duration = re.search('Duration: [0-9]+:[0-9]+:[0-9]+\.[0-9]+',result).group(0)
         duration = duration.replace('Duration: ','')
@@ -55,6 +56,9 @@ def thumbnails(file, thumbnail_dir, start, end, interval):
     logger.debug('generate thumbnails of {0}'.format(file))
     check_for_error = False
     results = []
+    if end is None:
+        logger.warning('no length')
+        return results
     for pos in range(start,end,interval):
         result = thumbnail(pos, file, '{thumbnail_dir}/t{pos:05d}.png'
             .format(thumbnail_dir=thumbnail_dir, pos=pos))

@@ -278,6 +278,10 @@ class main_screen :
         self.textsurface = font.render(message, True, (0, 0, 0),(255,255,255))
         self.textsurface_counter = MESSAGE_LENGTH
 
+    def back_to_menu(self):
+        GAME_MODE['CURRENT_MODE'] = MODE_MAIN
+
+
     ##start function for main loop
     def start(self,clock):
 
@@ -303,6 +307,7 @@ class main_screen :
                 # heavily doctored from Adafruit example
                 for event in pg.event.get(): # User did something
                     if event.type == pg.QUIT or ( event.type == pg.KEYDOWN and event.key == 27 ): # If user clicked close
+                        omxplayer_controller.send_command('kill')
                         logger.info('quit detected')
                         done=True # Flag that we are done so we exit this loop
                         logger.info('done set True')
@@ -404,6 +409,7 @@ class main_screen :
                     
                     if self.film_index == -1 or self.last_index is not self.film_index:
                         logger.debug('index {0}'.format(self.film_index))
+                        lib_files[self.film_index].thumbnail()
                         panel = self.create_funky_panel(lib_files[self.film_index])
                         
                     self.screen.blit(panel,(10,10))
@@ -434,7 +440,7 @@ class main_screen :
                                 omxplayer_controller.send_command('right')
                                 
                             if c[0]['name'] == 'fire':
-                                omxplayer_controller.send_command('space')
+                                omxplayer_controller.send_command('kill', callback=self.back_to_menu)
                     pass
 
                 if self.textsurface_counter > 0:

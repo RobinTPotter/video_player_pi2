@@ -25,7 +25,7 @@ def send_command(command, callback=None):
     '''
     send command to the process, command being literally the key pressed
     '''
-    
+    logger.info('command pressed {0}'.format(command))    
     if command in [com['letter'] for com in commands]: 
         commando = [c for c in commands if c['letter']==command][0]
         if 'alt' in commando.keys(): command = commando['alt']
@@ -34,22 +34,28 @@ def send_command(command, callback=None):
 
             if not command=='kill':
                 global omxplayer_process
-                omxplayer_process.stdin.write(command)
+                logger.info('about to send command {0} to {1}'.format(command,omxplayer_process))
+                omxplayer_process.stdin.write(command.encode('ascii'))
+                logger.info('written command')
+
             else:
                 getproc = Popen('pgrep omxplayer'.split(),stdin=PIPE,stdout=PIPE)
-                processes = ' '.join(getproc.communicate()[0].split('\n')).rstrip()
-                Popen(('kill -9 '+processes).split(' '), stdout=PIPE, stdin=PIPE, stderr=STDOUT).communiate()
-
+                out, err = getproc.communicate()
+                out = str(out.decode('utf-8'))
+                processes = ' '.join(out.split('\n')).rstrip()
+                logger.info('processes {0}'.format(processes))
+                Popen(('kill -9 {0}'.format(processes)).split(' '), stdout=PIPE, stdin=PIPE, stderr=STDOUT).communicate()
+                logger.info('kill sent')
             ## 
             if callback is not None: callback()
             
         except Exception as e:
-            print('communicate exception in command {0}\n{1}'.format(str(command),e))
+            logger.error('communicate exception in command {0}\n{1}'.format(str(command),e))
     
 
 def play(file,pos):
     global omxplayer_process
     logger.info('attempt to play {0} from {1}'.format(file,pos))
     omxplayer_process = Popen(['omxplayer', '-b',str(file),'--pos',str(pos)], stdout=PIPE, stdin=PIPE, stderr=STDOUT)    
-    print('got process {0}'.format(omxplayer_process))
+    logger.info('got process {0}'.format(omxplayer_process))
 
