@@ -13,6 +13,9 @@ import re
 avconv_process = None
 
 def duration(file):
+    """use avprobe for ffprobe to get the  duration of a video file,
+    returns integer second or 0 if problem
+    """
     try:
         logger.debug('determine duration of {0}'.format(file))
         avprobe_process = Popen(
@@ -34,6 +37,9 @@ def duration(file):
         return 0
         
 def thumbnail(position,file,thumbnail):
+    """create an image of the size size of the frame at a
+    position in second, returns the file path of created image or None. uses png.
+    """
     try:
         cmd = '{exe_avconv} -y -ss {position} -i'.format(exe_avconv=exe_avconv, position=position).split()+ \
             ['{file}'.format(file=file)]+ \
@@ -53,6 +59,9 @@ def thumbnail(position,file,thumbnail):
 
 
 def thumbnails(file, thumbnail_dir, start, end, interval):
+    """run the thumbnail function for video using the starting frame,
+    end frame and interval, returns object, containing array of filenames
+    """
     logger.debug('generate thumbnails of {0}'.format(file))
     check_for_error = False
     results = []

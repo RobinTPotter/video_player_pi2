@@ -21,6 +21,11 @@ def find_files(directory, pattern):
 
 DEFAULT_THUMBNAIL_PATH = '~/thumnails'
 
+
+
+#cursor.execute('insert into File (id, name, bin) values (?,?,?)', (id, name, sqlite3.Binary(file.read())))
+#file = cursor.execute('select bin from File where id=?', (id,)).fetchone()
+
 import avconv_controller
 
 class file:
@@ -45,10 +50,6 @@ class file:
     def __repr__(self):
         if self.length is not None: return '{0} ({1}): {2} min;{3} thumbs'.format(self.name,self.filename,int(self.length/60),len(self.thumbnails))
         else: return '{0} ({1}): {2} min;{3} thumbs'.format(self.name,self.filename,None,len(self.thumbnails))
-
-
-
-
 
     def info(self, check_imdb=True):
 
@@ -110,23 +111,6 @@ class file:
             results = avconv_controller.thumbnails(self.filename, self.thumbnail_dir, 0, self.length, THUMBNAIL_INTERVAL)
             logger.info('ran thumbnail conversion')
 
-        if len(thumb)>0:
-            logger.info('found thumbnail images')
-            self.thumbnails = []
-            self.thumbnails_positions = []
-            countload = 0
-            for r in thumb:
-                im = pg.image.load(r)
-                im = pg.transform.scale(im, (240, 160))
-                self.thumbnails.append(im)
-                pos = int(re.search('t([0-9]{5})\.png',r).group(1))
-                self.thumbnails_positions.append(pos)
-                countload += 1
-                logger.debug('loaded {0}'.format(r))
-
-            logger.info('loaded {0} thumbnails for {1}'.format(countload, self.filename))
-
-            logger.debug('written length')
 
     def call_imdb(self, title):
 
