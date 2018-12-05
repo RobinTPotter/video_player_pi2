@@ -12,7 +12,7 @@ import re
 import pygame as pg
 import ntpath
 import sqlite3
-from pathlib import Path 
+from pathlib import Path
 
 import avconv_controller
 
@@ -77,7 +77,17 @@ class librarian:
         # give up, remove from untracked and update table
         #
         
-        cursor.executemany("insert into videos(file, length, name) values (?)", [(u,) for u in untracked])
+        for u in untracked:
+            from imdb import call_imdb
+            res = call_imdb(Path(u).name)
+            name = res['name']
+            description = res['description']
+            image = res['title_image']
+            length = 0
+
+            cursor.execute("""insert into videos(file, length, name, description, last_position, tries_left_imdb)
+             values (?, ?, ?, ?, ?,?)""", (u,length, name, description, 0 , 0 ))
+
         self.connection.commit()
             
 

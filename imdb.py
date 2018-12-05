@@ -4,6 +4,7 @@ logger = logging.getLogger(LOGNAME)
 
 import requests
 from bs4 import BeautifulSoup
+import re
 
 def call_imdb(title):
 
@@ -57,6 +58,6 @@ def call_imdb(title):
         return { 'name': name, 'description': description, 'title_image':title_image }
         
     except Exception as e:
-        logger.error('imdb image/title/descr results {0} on {1}'.format(e, self))
+        logger.error('imdb image/title/descr results {0}'.format(e))
         return { 'name': title, 'description': 'no description', 'title_image': None }
 
