@@ -1,4 +1,4 @@
-from config import LOGNAME, LOGFILE, LOGSIZE, FILE_LOG_LEVEL, CONSOLE_LOG_LEVEL
+from config import LOGNAME, LOGFILE, LOGSIZE, FILE_LOG_LEVEL, CONSOLE_LOG_LEVEL, DB
 import logging
 import logging.handlers
 logger = logging.getLogger(LOGNAME)
@@ -89,7 +89,7 @@ def load_config():
 
 config = load_config()
 
-lib = librarian.librarian(thumbnails = config['thumbnails'], media_dirs = config['dir'], extensions = config['ext'])
+lib = librarian.librarian(media_dirs = config['dir'], extensions = config['ext'], database=DB)
 
 ## capture additional config options not saved before
 for dk in default:

@@ -1,6 +1,3 @@
-
-
-
 from config import LOGNAME, exe_avprobe, exe_avconv
 import logging
 logger = logging.getLogger(LOGNAME)

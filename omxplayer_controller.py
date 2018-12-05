@@ -5,6 +5,7 @@ logger.info('importing omxplayer controller')
 
 from subprocess import Popen, PIPE, STDOUT
 
+# keyboard commands whilst omxplayer is working
 commands = [
     {'letter': 'q', 'name': 'quit'},
     {'letter': 'space', 'name': 'pause', 'alt':' ' },
@@ -17,14 +18,22 @@ commands = [
     {'letter': 'kill', 'name': 'killall' },
 ]
 
-logger.info('So should this')
-
 omxplayer_process = None
 
+def play(file,pos):
+    """initiate omxplayer and stores the process object
+    file to plat and position in seconds to play from
+    """
+    global omxplayer_process
+    logger.info('attempt to play {0} from {1}'.format(file,pos))
+    omxplayer_process = Popen(['omxplayer', '-b',str(file),'--pos',str(pos)], stdout=PIPE, stdin=PIPE, stderr=STDOUT)    
+    logger.info('got process {0}'.format(omxplayer_process))
+
+
 def send_command(command, callback=None):
-    '''
-    send command to the process, command being literally the key pressed
-    '''
+    """
+    send command to the omxplayer process, command being literally the key pressed
+    """
     logger.info('command pressed {0}'.format(command))    
     if command in [com['letter'] for com in commands]: 
         commando = [c for c in commands if c['letter']==command][0]
@@ -46,16 +55,9 @@ def send_command(command, callback=None):
                 logger.info('processes {0}'.format(processes))
                 Popen(('kill -9 {0}'.format(processes)).split(' '), stdout=PIPE, stdin=PIPE, stderr=STDOUT).communicate()
                 logger.info('kill sent')
-            ## 
+            
             if callback is not None: callback()
             
         except Exception as e:
             logger.error('communicate exception in command {0}\n{1}'.format(str(command),e))
     
-
-def play(file,pos):
-    global omxplayer_process
-    logger.info('attempt to play {0} from {1}'.format(file,pos))
-    omxplayer_process = Popen(['omxplayer', '-b',str(file),'--pos',str(pos)], stdout=PIPE, stdin=PIPE, stderr=STDOUT)    
-    logger.info('got process {0}'.format(omxplayer_process))
-
