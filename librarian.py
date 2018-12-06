@@ -26,6 +26,33 @@ def find_files(directory, pattern):
 #cursor.execute('insert into File (id, name, bin) values (?,?,?)', (id, name, sqlite3.Binary(file.read())))
 #file = cursor.execute('select bin from File where id=?', (id,)).fetchone()
 
+sql_create_main = """CREATE TABLE IF NOT EXISTS videos (
+ file text PRIMARY KEY,
+ length integer,
+ name text,
+ description text,
+ last_position integer,
+ title blob,
+ tries_left_imdb integer
+);"""
+
+sql_create_thumbnails = """CREATE TABLE IF NOT EXISTS thumbnails (
+ file text PRIMARY KEY,
+ pos integer,
+ thumbnail blob
+);"""
+
+sql_select_file_name = 'SELECT name FROM videos WHERE file = :file;'
+
+sql_select_file_record = 'SELECT file, length, name, description, last_position, title, tries_left_imdb FROM videos WHERE file = :file;'
+
+sql_insert_fresh_file = """insert into videos(
+    file, length, name, description, last_position, title, tries_left_imdb
+)
+values (
+    :file, :length, :name, :description, :last_position, :title, :tries_left_imdb
+)"""
+             
 class librarian:
 
     def __init__(self, **kwargs):
@@ -40,15 +67,8 @@ class librarian:
 
         self.connection = sqlite3.connect(self.database)
         cursor = self.connection.cursor()
-        cursor.execute("""CREATE TABLE IF NOT EXISTS videos (
- file text PRIMARY KEY,
- length integer,
- name text,
- description text,
- last_position integer,
- title blob,
- tries_left_imdb integer
-        );""")
+        cursor.execute(sql_create_main)
+        cursor.execute(sql_create_thumbnails)
         
 
         self.files = []
@@ -63,7 +83,7 @@ class librarian:
         untracked = []
 
         for file in self.files:
-            cursor.execute('SELECT name FROM videos WHERE file = ?;', (file,))
+            cursor.execute(sql_select_file_name, {'file': file})
             record = cursor.fetchone()
             
             if record is None:
@@ -77,21 +97,36 @@ class librarian:
         # give up, remove from untracked and update table
         #
         
-        for u in untracked:
+        for untracked_file in untracked:
             from imdb import call_imdb
-            res = call_imdb(Path(u).name)
-            name = res['name']
-            description = res['description']
-            image = res['title_image']
-            length = 0
+            result = call_imdb(Path(untracked_file).name)
+            name = result['name']
+            description = result['description']
+            image = result['title_image']
+            length = avconv_controller.duration(untracked_file)
 
-            cursor.execute("""insert into videos(file, length, name, description, last_position, tries_left_imdb)
-             values (?, ?, ?, ?, ?,?)""", (u,length, name, description, 0 , 0 ))
+            cursor.execute(sql_insert_fresh_file, {'file':untracked_file,'length':length, 'name':name, 'description':description, 'tries_left_imdb':0 , 'title':image, 'last_position':0 })
 
         self.connection.commit()
             
-
-
+    def get_file(self, num):
+    
+        if num >= len(self.files):
+            num = len(self.files)-1
+        elif num < 0: num = 0
+        
+        name = self.files[num]
+        logger.debug('get file {0} is {1}'.format(num, name))
+        
+        cursor = self.connection.cursor()
+        cursor.execute(sql_select_file_record, {'file': name})
+        record = cursor.fetchone()
+        
+        labels = ['file', 'length', 'name', 'description', 'last_position', 'title', 'tries_left_imdb']
+        object = dict(zip(labels,record)) 
+        
+        return object
+      
 
 
     def get_files(self):
